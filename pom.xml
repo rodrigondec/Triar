@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>web2</groupId>
-  <artifactId>jsf</artifactId>
+  <artifactId>Triar</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>jsf Maven Webapp</name>
@@ -16,7 +16,7 @@
 	</dependency>
 </dependencies>
   <build>
-    <finalName>jsf</finalName>
+    <finalName>Triar</finalName>
     <plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
