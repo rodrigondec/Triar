@@ -42,8 +42,20 @@ public class UsuarioMB {
 		this.listaMensagens = listaMensagens;
 		
 	}
+	
+	public String login() {
+		if (usuario.getEmail().equals("rodrigondec@gmail.com") && 
+			usuario.getSenha().equals("rodrigo123")) {
+			return "/interna/home.jsf";
+		} else {
+			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
+			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+			FacesContext.getCurrentInstance().addMessage("", msg);
+			return null;
+		}
+	}
 
-	public String login(){
+	public String teste(){
 		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
 		if(u!= null) {
 			if(u.getSenha().equals(usuario.getSenha())) {
