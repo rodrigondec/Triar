@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -7,6 +10,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import dao.UsuarioDAO;
+import model.Mensagem;
 import model.Usuario;
 
 @ManagedBean
@@ -14,9 +18,11 @@ import model.Usuario;
 public class UsuarioMB {
 	private Usuario usuario;
 	@Inject private UsuarioDAO usuarioDAO;
+	private List<Mensagem> listaMensagens;
 	
 	public UsuarioMB(){
-		usuario = new Usuario();
+		setUsuario(new Usuario());
+		setListaMensagens(new ArrayList<Mensagem>()); 
 	}
 	
 	public Usuario getUsuario(){
@@ -27,6 +33,16 @@ public class UsuarioMB {
 		this.usuario = usuario;
 	}
 	
+	public List<Mensagem> getListaMensagens() {
+		setListaMensagens(usuarioDAO.listarMensagens());
+		return listaMensagens;
+	}
+	
+	private void setListaMensagens(List<Mensagem> listaMensagens) {
+		this.listaMensagens = listaMensagens;
+		
+	}
+
 	public String login(){
 		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
 		if(u!= null) {
