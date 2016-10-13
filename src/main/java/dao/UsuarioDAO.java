@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -9,6 +10,7 @@ import javax.persistence.Query;
 import model.Usuario;
 import model.Mensagem;
 
+//@Stateless
 public class UsuarioDAO {
 	@PersistenceContext
 	private EntityManager em;

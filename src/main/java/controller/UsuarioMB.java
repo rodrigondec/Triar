@@ -17,7 +17,8 @@ import model.Usuario;
 @RequestScoped
 public class UsuarioMB {
 	private Usuario usuario;
-	@Inject private UsuarioDAO usuarioDAO;
+	@Inject 
+	private UsuarioDAO usuarioDAO;
 	private List<Mensagem> listaMensagens;
 	
 	public UsuarioMB(){
@@ -45,7 +46,7 @@ public class UsuarioMB {
 	
 	public String login() {
 		if (usuario.getEmail().equals("rodrigondec@gmail.com") && 
-			usuario.getSenha().equals("rodrigo123")) {
+			usuario.getSenha().equals("rodrigo123")){
 			return "/interna/home.jsf";
 		} else {
 			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
@@ -56,7 +57,10 @@ public class UsuarioMB {
 	}
 
 	public String teste(){
-		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
+		
+		String email = usuario.getEmail();
+		
+		Usuario u = usuarioDAO.buscarEmail(email);
 		if(u!= null) {
 			if(u.getSenha().equals(usuario.getSenha())) {
 				return"/interna/home.jsf";
