@@ -47,7 +47,7 @@ public class UsuarioMB {
 		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
 		if(u!= null) {
 			if(u.getSenha().equals(usuario.getSenha())) {
-				return"/interna/cadastra.jsf";
+				return"/interna/home.jsf";
 			} else{
 				FacesMessage msg = new FacesMessage("Email e/ou senha incorretos");
 				msg.setSeverity(FacesMessage.SEVERITY_ERROR);
