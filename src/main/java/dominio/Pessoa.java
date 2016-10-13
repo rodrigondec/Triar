@@ -28,7 +28,7 @@ public class Pessoa {
 	private String telefone;	
 	
 	@OneToOne
-	@JoinColumn
+	@JoinColumn(name="idpessoa")
 	private Usuario usuario;
 	
 	public int getIdpessoa() {

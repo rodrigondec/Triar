@@ -29,7 +29,7 @@ public class ProcessoSeletivo {
 	private Coordenador coordenador;
 	
 	@OneToMany
-	@JoinColumn
+	@JoinColumn(name="idvaga")
 	private List<Vaga> vagas;
 	
 	public int getIdprocesso() {

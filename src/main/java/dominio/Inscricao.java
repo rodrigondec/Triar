@@ -22,7 +22,11 @@ public class Inscricao {
 	private Graduado graduado;
 	
 	@ManyToOne
-	@JoinColumn(name="idinscricao")
+	@JoinColumn(name="idvaga")
+	private Vaga vaga;
+	
+	@ManyToOne
+	@JoinColumn(name="idsituacao")
 	private Situacao situacao;
 	
 	public int getNota() {
@@ -47,5 +51,13 @@ public class Inscricao {
 
 	public void setSituacao(Situacao situacao) {
 		this.situacao = situacao;
+	}
+
+	public Vaga getVaga() {
+		return vaga;
+	}
+
+	public void setVaga(Vaga vaga) {
+		this.vaga = vaga;
 	}
 }

@@ -23,7 +23,7 @@ public class Coordenador {
 	private Pessoa pessoa;
 	
 	@OneToMany
-	@JoinColumn
+	@JoinColumn(name="idcoordenador")
 	private List<ProcessoSeletivo> processos;
 
 	public int getIdcoordenador() {

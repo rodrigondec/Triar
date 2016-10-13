@@ -24,8 +24,8 @@ public class Vaga {
 	private ProcessoSeletivo processo;
 	
 	@OneToMany
-	@JoinColumn
-	private List<Inscricao> inscricao;
+	@JoinColumn(name="idinscricao")
+	private List<Inscricao> inscricoes;
 	
 	public String getSub_area() {
 		return sub_area;
@@ -44,10 +44,10 @@ public class Vaga {
 	}
 
 	public List<Inscricao> getInscricao() {
-		return inscricao;
+		return inscricoes;
 	}
 
-	public void setInscricao(List<Inscricao> inscricao) {
-		this.inscricao = inscricao;
+	public void setInscricao(List<Inscricao> inscricoes) {
+		this.inscricoes = inscricoes;
 	}
 }

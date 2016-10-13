@@ -28,7 +28,7 @@ public class Usuario {
 	private Pessoa pessoa;
 	
 	@OneToMany
-	@JoinColumn
+	@JoinColumn(name="idmensagem")
 	private List<Mensagem> mensagens;
 	
 	public int getIdusuario() {
