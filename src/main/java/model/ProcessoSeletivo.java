@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,9 +20,13 @@ public class ProcessoSeletivo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idprocesso;
+	@Column(nullable=false)
 	private String curso;
+	@Column(nullable=false)
 	private File edital;
+	@Column(nullable=false)
 	private Date data_inicio;
+	@Column(nullable=false)
 	private Date data_fim;
 	
 	@ManyToOne

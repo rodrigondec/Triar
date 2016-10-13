@@ -1,6 +1,7 @@
 package model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,19 +19,23 @@ public class Pessoa {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idpessoa;
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String cpf;
 	@Column(nullable=false)
 	private String nome;
 	@Column(nullable=false)
 	private Date data_nascimento;
-	@Column(nullable=false)
+	@Column(nullable=false, unique=true)
 	private String email;
-	private String telefone;	
+	private String telefone;
+	@Column(nullable=false)
+	private String senha;
+	@Column(nullable=false)
+	private Boolean receber_email = true;
 	
-	@OneToOne
-	@JoinColumn(name="idpessoa")
-	private Usuario usuario;
+	@OneToMany
+	@JoinColumn(name="idmensagem")
+	private List<Mensagem> mensagens;
 	
 	public int getIdpessoa() {
 		return idpessoa;
@@ -75,11 +81,27 @@ public class Pessoa {
 		this.telefone = telefone;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public List<Mensagem> getMensagens() {
+		return mensagens;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setMensagens(List<Mensagem> mensagens) {
+		this.mensagens = mensagens;
+	}
+	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public Boolean getReceber_email() {
+		return receber_email;
+	}
+
+	public void setReceber_email(Boolean receber_email) {
+		this.receber_email = receber_email;
 	}
 }

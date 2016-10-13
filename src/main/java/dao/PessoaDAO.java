@@ -21,4 +21,8 @@ public class PessoaDAO {
 		x = em.find(Pessoa.class, x.getIdpessoa());
 		em.remove(x);
 	}
+
+	public Pessoa buscarEmail(String email) {
+		return (Pessoa) em.find(Pessoa.class, email);
+	}
 }

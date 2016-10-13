@@ -15,7 +15,6 @@
 		<class>model.Pessoa</class>
 		<class>model.ProcessoSeletivo</class>
 		<class>model.Situacao</class>
-		<class>model.Usuario</class>
 		<class>model.Vaga</class>
 
 		<jta-data-source>java:/TriarDS</jta-data-source>
