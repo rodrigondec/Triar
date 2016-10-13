@@ -60,4 +60,8 @@ public class Inscricao {
 	public void setVaga(Vaga vaga) {
 		this.vaga = vaga;
 	}
+
+	public int getIdinscricao() {
+		return idinscricao;
+	}
 }

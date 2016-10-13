@@ -27,6 +27,10 @@ public class Vaga {
 	@JoinColumn(name="idinscricao")
 	private List<Inscricao> inscricoes;
 	
+	public int getIdvaga(){
+		return idvaga;
+	}
+	
 	public String getSub_area() {
 		return sub_area;
 	}
