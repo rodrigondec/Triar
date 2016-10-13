@@ -10,15 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="pessoa")
-public class Pessoa {
+@Table(name="usuario")
+public class Usuario {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int idpessoa;
+	private int idusuario;
 	@Column(nullable=false, unique=true)
 	private String cpf;
 	@Column(nullable=false)
@@ -37,8 +36,8 @@ public class Pessoa {
 	@JoinColumn(name="idmensagem")
 	private List<Mensagem> mensagens;
 	
-	public int getIdpessoa() {
-		return idpessoa;
+	public int getIdusuario() {
+		return idusuario;
 	}
 
 	public String getCpf() {

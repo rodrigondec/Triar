@@ -16,18 +16,18 @@ public class Administrador {
 	private int idadministrador;
 	
 	@OneToOne
-	@JoinColumn(name="idpessoa")
-	private Pessoa pessoa;
+	@JoinColumn(name="idusuario")
+	private Usuario usuario;
 
 	public int getIdadministrador() {
 		return idadministrador;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	
+	public void setIdusuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }

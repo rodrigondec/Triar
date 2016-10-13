@@ -23,8 +23,8 @@ public class Mensagem {
 	private boolean ativa;	
 	
 	@ManyToOne
-	@JoinColumn(name="idpessoa")
-	private Pessoa pessoa;
+	@JoinColumn(name="idusuario")
+	private Usuario usuario;
 
 	public int getIdmensagem() {
 		return idmensagem;
@@ -54,11 +54,11 @@ public class Mensagem {
 		this.ativa = ativa;
 	}
 
-	public Pessoa getPessoa() {
-		return pessoa;
+	public Usuario getUsuario() {
+		return usuario;
 	}
-
-	public void setPessoa(Pessoa pessoa) {
-		this.pessoa = pessoa;
+	
+	public void setIdusuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 }
