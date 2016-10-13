@@ -3,7 +3,7 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import dominio.Graduado;
+import model.Graduado;
 
 
 

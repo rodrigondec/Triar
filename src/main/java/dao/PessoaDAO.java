@@ -3,7 +3,7 @@ package dao;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import dominio.Pessoa;
+import model.Pessoa;
 
 public class PessoaDAO {
 	@PersistenceContext

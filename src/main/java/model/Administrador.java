@@ -1,6 +1,4 @@
-package dominio;
-
-import java.io.File;
+package model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,27 +9,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="graduado")
-public class Graduado {
+@Table(name="administrador")
+public class Administrador {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int idgraduado;
-	private File identidade;
+	private int idadministrador;
 	
 	@OneToOne
 	@JoinColumn(name="idpessoa")
 	private Pessoa pessoa;
 
-	public int getIdgraduado() {
-		return idgraduado;
-	}
-	
-	public File getIdentidade() {
-		return identidade;
-	}
-
-	public void setIdentidade(File identidade) {
-		this.identidade = identidade;
+	public int getIdadministrador() {
+		return idadministrador;
 	}
 
 	public Pessoa getPessoa() {
