@@ -11,7 +11,8 @@ import model.Noticia;
 @RequestScoped
 public class NoticiaMB {
 	private Noticia noticia;
-	@Inject private NoticiaDAO noticiaDAO;
+	@Inject 
+	private NoticiaDAO noticiaDAO;
 
 	public NoticiaMB(){
 		setNoticia(new Noticia());

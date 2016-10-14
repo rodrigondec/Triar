@@ -11,7 +11,8 @@ import model.Inscricao;
 @RequestScoped
 public class InscricaoMB {
 	private Inscricao inscricao;
-	@Inject private InscricaoDAO inscricaoDAO;
+	@Inject 
+	private InscricaoDAO inscricaoDAO;
 
 	public InscricaoMB(){
 		setInscricao(new Inscricao());

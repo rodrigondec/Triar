@@ -11,7 +11,8 @@ import model.Vaga;
 @RequestScoped
 public class VagaMB {
 	private Vaga vaga;
-	@Inject private VagaDAO vagaDAO;
+	@Inject 
+	private VagaDAO vagaDAO;
 	
 	public VagaMB(){
 		setVaga(new Vaga());

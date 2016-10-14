@@ -15,7 +15,8 @@ import model.ProcessoSeletivo;
 @RequestScoped
 public class CoordenadorMB {
 	private Coordenador coordenador;
-	@Inject private CoordenadorDAO coordenadorDAO;
+	@Inject 
+	private CoordenadorDAO coordenadorDAO;
 	private List<ProcessoSeletivo> processos;
 	
 	public CoordenadorMB(){

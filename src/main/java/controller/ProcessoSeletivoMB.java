@@ -11,7 +11,8 @@ import model.ProcessoSeletivo;
 @RequestScoped
 public class ProcessoSeletivoMB {
 	private ProcessoSeletivo processo;
-	@Inject private ProcessoSeletivoDAO processoDAO;
+	@Inject 
+	private ProcessoSeletivoDAO processoDAO;
 
 	public ProcessoSeletivoMB(){
 		setProcesso(new ProcessoSeletivo());

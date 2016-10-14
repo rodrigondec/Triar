@@ -13,7 +13,8 @@ import model.Graduado;
 @RequestScoped
 public class GraduadoMB {
 	private Graduado graduado;
-	@Inject private GraduadoDAO graduadoDAO;
+	@Inject 
+	private GraduadoDAO graduadoDAO;
 	private File arquivo_cpf;
 
 	public GraduadoMB(){
