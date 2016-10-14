@@ -1,10 +1,12 @@
 package dao;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import model.Vaga;
 
+@Stateless
 public class VagaDAO {
 	@PersistenceContext
 	private EntityManager em;	

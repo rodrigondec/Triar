@@ -1,12 +1,13 @@
 package dao;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import model.Inscricao;
 
 
-
+@Stateless
 public class InscricaoDAO {
 	@PersistenceContext
 	private EntityManager em;	

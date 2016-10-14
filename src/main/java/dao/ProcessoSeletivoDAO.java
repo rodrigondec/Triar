@@ -1,12 +1,13 @@
 package dao;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import model.ProcessoSeletivo;
 
 
-
+@Stateless
 public class ProcessoSeletivoDAO {
 	@PersistenceContext
 	private EntityManager em;	

@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import model.Usuario;
 import model.Mensagem;
 
-//@Stateless
+@Stateless
 public class UsuarioDAO {
 	@PersistenceContext
 	private EntityManager em;

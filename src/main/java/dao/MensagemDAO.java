@@ -1,11 +1,12 @@
 package dao;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import model.Mensagem;
 
-
+@Stateless
 public class MensagemDAO {
 	@PersistenceContext
 	private EntityManager em;	
