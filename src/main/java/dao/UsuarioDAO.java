@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
@@ -28,8 +29,17 @@ public class UsuarioDAO {
 		em.remove(x);
 	}
 
-	public Usuario buscarEmail(String email) {
-		return (Usuario) em.find(Usuario.class, email);
+	public Usuario buscarEmail(String email){
+		String qs= "select u from Usuario u where u.email= :email";
+		
+		Query q = em.createQuery(qs);
+		q.setParameter("email", email);
+		
+		try{
+			return (Usuario) q.getSingleResult();
+		} catch(NoResultException e) {
+			return null;
+		}
 	}
 	
 	@SuppressWarnings("unchecked")
