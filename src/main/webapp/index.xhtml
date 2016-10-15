@@ -8,27 +8,28 @@
 		<title>Login</title>
 	</ui:define>
 
-	<ui:define name="conteudo">
-		<h:form>
-			<h1>Bem-vindo!</h1>
+	<ui:define name="header">
+		<h2>Bem-vindo!</h2>
+		<hr></hr>
+	</ui:define>
+	
+	<ui:define name="conteudo">			
+		<h:form class="">
 			
 			<h:messages />
-			<fieldset>
-				<p>Login:</p>
-				<p>
-					<h:inputText value="#{usuarioMB.usuario.email}" 
-						required="true" requiredMessage="Login obrigatório" />
-				</p>
-				
-				<p>Senha:</p>
-				<p>
-					<h:inputSecret value="#{usuarioMB.usuario.senha}" 
-						required="true" requiredMessage="Senha obrigatória" />
-				</p>
-				
-				<p><h:commandButton action="#{usuarioMB.teste}" 
-					value="Login" /></p>
-			</fieldset>
+			<div class='form-group'>
+				<label for="data">Login</label>
+				<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
+				<h:inputText class='form-control' value="#{usuarioMB.usuario.email}" required="true" requiredMessage="Login obrigatório" />
+			</div>
+			<div class='form-group'>
+				<label for="data">Senha</label>
+				<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
+				<h:inputSecret class='form-control' value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="Senha obrigatória" />
+			</div>
+			<div style="text-align: center">
+				<h:commandButton action="#{usuarioMB.teste}" value="Login" class="btn btn-default" />
+			</div>
 		</h:form>
 	</ui:define>
 </ui:composition>
