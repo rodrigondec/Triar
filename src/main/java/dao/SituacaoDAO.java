@@ -1,8 +1,11 @@
 package dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import model.Situacao;
 
@@ -23,5 +26,12 @@ public class SituacaoDAO {
 	public void remover(Situacao x){
 		x = em.find(Situacao.class, x.getIdsituacao());
 		em.remove(x);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Situacao> listar() {
+		String qs = "select s from Situacao s";
+		Query q = em.createQuery(qs);
+		return (List<Situacao>) q.getResultList();
 	}
 }

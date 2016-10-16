@@ -58,7 +58,7 @@ public class UsuarioMB {
 
 	public String teste(){
 		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
-		if(u!= null) {
+		if(u!= null){
 			if(u.getSenha().equals(usuario.getSenha())) {
 				return"/interna/home.jsf";
 			} else{

@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Processos Seletivos</title>
+	</ui:define>
+	
+	<ui:define name="header">
+		<h2>Processos</h2>
+		<hr></hr>
+	</ui:define>
+	
+	<ui:define name="conteudo">
+		<h:dataTable value="#{situacaoMB.situacoes}" var="s">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{s.nome}" />
+			</h:column>
+		</h:dataTable>
+	</ui:define>
+</ui:composition>

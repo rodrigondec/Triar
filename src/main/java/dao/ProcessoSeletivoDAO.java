@@ -1,8 +1,11 @@
 package dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import model.ProcessoSeletivo;
 
@@ -23,5 +26,12 @@ public class ProcessoSeletivoDAO {
 	public void remover(ProcessoSeletivo x){
 		x = em.find(ProcessoSeletivo.class, x.getIdprocesso());
 		em.remove(x);
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ProcessoSeletivo> listar(){
+		String qs = "select p from ProcessoSeletivo p";
+		Query q = em.createQuery(qs);
+		return (List<ProcessoSeletivo>) q.getResultList();
 	}
 }
