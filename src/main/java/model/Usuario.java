@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -31,6 +32,10 @@ public class Usuario {
 	private String senha;
 	@Column(nullable=false)
 	private Boolean receber_email = true;
+	
+	@ManyToOne
+	@JoinColumn(name="idusuario")
+	private Permissao permissao;
 	
 	@OneToMany
 	@JoinColumn(name="idmensagem")

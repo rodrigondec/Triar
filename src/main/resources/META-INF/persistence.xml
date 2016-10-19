@@ -12,6 +12,7 @@
 		<class>model.Inscricao</class>
 		<class>model.Mensagem</class>
 		<class>model.Noticia</class>
+		<class>model.Permissao</class>
 		<class>model.Usuario</class>
 		<class>model.ProcessoSeletivo</class>
 		<class>model.Situacao</class>
