@@ -54,7 +54,18 @@ public class UsuarioMB {
 	
 	private void setListaMensagens(List<Mensagem> listaMensagens) {
 		this.listaMensagens = listaMensagens;
+	public Boolean isAdmin(){
+		if(false){ // session == null
+			return false;
+		}
 		
+		int idusuario = 1;
+		Administrador admin = administradorDAO.getAdministrador(idusuario);
+		if(admin!= null){
+			return true;
+		}
+		
+		return false;
 	}
 	
 	public String login() {
