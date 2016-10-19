@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Triar - Cadastrar Notícia </title>
+	</ui:define>
+
+	<ui:define name="header">
+		<h2>Cadastrar Notícia</h2>
+		<hr></hr>
+	</ui:define>
+	
+	<ui:define name="conteudo">			
+		<h:form>
+			<h:messages />
+			<div class='form-group'>
+				<label for="data">Título</label>
+				<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
+				<h:inputText class='form-control' value="#{noticiaMB.noticia.titulo}" required="true" requiredMessage="título obrigatório" />
+			</div>
+			<div class='form-group'>
+				<label for="data">Conteúdo</label>
+				<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
+				<h:inputTextarea class='form-control' value="#{noticiaMB.noticia.corpo}" required="true" requiredMessage="conteúdo obrigatória" />
+			</div>
+			<div style="text-align: center">
+				<h:commandButton action="#{usuarioMB.login}" value="Login" class="btn btn-default" />
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

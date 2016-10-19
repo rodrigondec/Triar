@@ -57,7 +57,7 @@ public class UsuarioMB {
 			return false;
 		}
 		
-		int idusuario = 0;
+		int idusuario = 1;
 		Administrador admin = administradorDAO.getAdministrador(idusuario);
 		if(admin!= null){
 			return true;
