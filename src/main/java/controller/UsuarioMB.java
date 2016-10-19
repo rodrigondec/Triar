@@ -114,8 +114,7 @@ public class UsuarioMB {
 		
 	}
 
-	@SuppressWarnings("unused")
-	private String login(){
+	public String login(){
 		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
 		if(u!= null){
 			if(u.getSenha().equals(usuario.getSenha())) {
