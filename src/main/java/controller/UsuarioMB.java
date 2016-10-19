@@ -54,6 +54,24 @@ public class UsuarioMB {
 			FacesContext.getCurrentInstance().addMessage("", msg);
 			return null;
 		}
+	public String getMenu(){
+		if(true){ // session == true
+			if(isAdmin()){
+				return "menu_admin.xhtml";
+			}
+			else if(isCoord()){
+				return "menu_coord.xhtml";
+			}
+			else if(isGrad()){
+				return "menu_grad.xhtml";
+			}
+		}
+		return "menu_exter.xhtml";
+	}
+	
+	private void setListaMensagens(List<Mensagem> listaMensagens) {
+		this.listaMensagens = listaMensagens;
+		
 	}
 
 	public String teste(){
