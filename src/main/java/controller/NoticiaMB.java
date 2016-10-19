@@ -25,4 +25,12 @@ public class NoticiaMB {
 	public void setNoticia(Noticia noticia) {
 		this.noticia = noticia;
 	}
+	
+	public String cadastrar() {
+		noticiaDAO.salvar(noticia);
+		
+		noticia = new Noticia();
+		
+		return "/interna/administrador/listar_noticias.jsf";
+	}
 }
