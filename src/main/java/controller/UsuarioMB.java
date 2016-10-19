@@ -57,7 +57,7 @@ public class UsuarioMB {
 			return false;
 		}
 		
-		int idusuario = 1;
+		int idusuario = 0;
 		Administrador admin = administradorDAO.getAdministrador(idusuario);
 		if(admin!= null){
 			return true;
@@ -71,7 +71,7 @@ public class UsuarioMB {
 			return false;
 		}
 		
-		int idusuario = 1;
+		int idusuario = 0;
 		Coordenador coord = coordenadorDAO.getCoordenador(idusuario);
 		if(coord!= null){
 			return true;
@@ -85,7 +85,7 @@ public class UsuarioMB {
 			return false;
 		}
 		
-		int idusuario = 1;
+		int idusuario = 0;
 		Graduado grad = graduadoDAO.getGraduado(idusuario);
 		if(grad!= null){
 			return true;
@@ -114,6 +114,7 @@ public class UsuarioMB {
 		
 	}
 
+	@SuppressWarnings("unused")
 	private String login(){
 		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
 		if(u!= null){
