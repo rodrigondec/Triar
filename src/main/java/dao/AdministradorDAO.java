@@ -26,4 +26,16 @@ public class AdministradorDAO {
 		x = em.find(Administrador.class, x.getIdadministrador());
 		em.remove(x);
 	}
+	
+	public Administrador getAdministrador(int idusuario){
+		String qs= "select a from Administrador a where a.usuario.idusuario= :idusuario";
+		Query q = em.createQuery(qs);
+		q.setParameter("idusuario", idusuario);
+		
+		try{
+			return (Administrador) q.getSingleResult();
+		} catch(NoResultException e) {
+			return null;
+		}
+	}
 }
