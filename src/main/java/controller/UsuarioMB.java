@@ -77,7 +77,19 @@ public class UsuarioMB {
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
 			return null;
+	public Boolean isCoord(){
+		if(false){ // session == null
+			return false;
 		}
+		
+		int idusuario = 1;
+		Coordenador coord = coordenadorDAO.getCoordenador(idusuario);
+		if(coord!= null){
+			return true;
+		}
+		
+		return false;
+	}
 	public String getMenu(){
 		if(true){ // session == true
 			if(isAdmin()){
