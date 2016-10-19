@@ -34,7 +34,7 @@ public class Usuario {
 	private Boolean receber_email = true;
 	
 	@ManyToOne
-	@JoinColumn(name="idusuario")
+	@JoinColumn(name="idpermissao")
 	private Permissao permissao;
 	
 	@OneToMany
