@@ -52,8 +52,6 @@ public class UsuarioMB {
 		return listaMensagens;
 	}
 	
-	private void setListaMensagens(List<Mensagem> listaMensagens) {
-		this.listaMensagens = listaMensagens;
 	public Boolean isAdmin(){
 		if(false){ // session == null
 			return false;
@@ -68,15 +66,6 @@ public class UsuarioMB {
 		return false;
 	}
 	
-	public String login() {
-		if (usuario.getEmail().equals("rodrigondec@gmail.com") && 
-			usuario.getSenha().equals("rodrigo123")){
-			return "/interna/home.jsf";
-		} else {
-			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
-			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-			FacesContext.getCurrentInstance().addMessage("", msg);
-			return null;
 	public Boolean isCoord(){
 		if(false){ // session == null
 			return false;
@@ -90,6 +79,21 @@ public class UsuarioMB {
 		
 		return false;
 	}
+	
+	public Boolean isGrad(){
+		if(false){ // session == null
+			return false;
+		}
+		
+		int idusuario = 1;
+		Graduado grad = graduadoDAO.getGraduado(idusuario);
+		if(grad!= null){
+			return true;
+		}
+		
+		return false;
+	}
+	
 	public String getMenu(){
 		if(true){ // session == true
 			if(isAdmin()){
@@ -110,7 +114,7 @@ public class UsuarioMB {
 		
 	}
 
-	public String teste(){
+	private String login(){
 		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
 		if(u!= null){
 			if(u.getSenha().equals(usuario.getSenha())) {
