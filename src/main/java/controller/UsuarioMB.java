@@ -9,7 +9,13 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+import dao.AdministradorDAO;
+import dao.CoordenadorDAO;
+import dao.GraduadoDAO;
 import dao.UsuarioDAO;
+import model.Administrador;
+import model.Coordenador;
+import model.Graduado;
 import model.Mensagem;
 import model.Usuario;
 
@@ -19,6 +25,13 @@ public class UsuarioMB {
 	private Usuario usuario;
 	@Inject 
 	private UsuarioDAO usuarioDAO;
+	@Inject 
+	private AdministradorDAO administradorDAO;
+	@Inject 
+	private CoordenadorDAO coordenadorDAO;
+	@Inject 
+	private GraduadoDAO graduadoDAO;
+	
 	private List<Mensagem> listaMensagens;
 	
 	public UsuarioMB(){
