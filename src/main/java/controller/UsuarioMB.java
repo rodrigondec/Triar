@@ -9,13 +9,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import dao.AdministradorDAO;
-import dao.CoordenadorDAO;
-import dao.GraduadoDAO;
 import dao.UsuarioDAO;
-import model.Administrador;
-import model.Coordenador;
-import model.Graduado;
 import model.Mensagem;
 import model.Usuario;
 
@@ -25,12 +19,6 @@ public class UsuarioMB {
 	private Usuario usuario;
 	@Inject 
 	private UsuarioDAO usuarioDAO;
-	@Inject 
-	private AdministradorDAO administradorDAO;
-	@Inject 
-	private CoordenadorDAO coordenadorDAO;
-	@Inject 
-	private GraduadoDAO graduadoDAO;
 	
 	private List<Mensagem> listaMensagens;
 	
@@ -52,48 +40,6 @@ public class UsuarioMB {
 		return listaMensagens;
 	}
 	
-	public Boolean isAdmin(){
-		if(false){ // session == null
-			return false;
-		}
-		
-		int idusuario = 1;
-		Administrador admin = administradorDAO.getAdministrador(idusuario);
-		if(admin!= null){
-			return true;
-		}
-		
-		return false;
-	}
-	
-	public Boolean isCoord(){
-		if(false){ // session == null
-			return false;
-		}
-		
-		int idusuario = 0;
-		Coordenador coord = coordenadorDAO.getCoordenador(idusuario);
-		if(coord!= null){
-			return true;
-		}
-		
-		return false;
-	}
-	
-	public Boolean isGrad(){
-		if(false){ // session == null
-			return false;
-		}
-		
-		int idusuario = 0;
-		Graduado grad = graduadoDAO.getGraduado(idusuario);
-		if(grad!= null){
-			return true;
-		}
-		
-		return false;
-	}
-	
 	public String getMenu(){
 		if(true){ // session == true
 			if(isAdmin()){
@@ -111,7 +57,6 @@ public class UsuarioMB {
 	
 	private void setListaMensagens(List<Mensagem> listaMensagens) {
 		this.listaMensagens = listaMensagens;
-		
 	}
 
 	public String login(){
