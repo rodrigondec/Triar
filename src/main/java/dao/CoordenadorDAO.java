@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -7,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import model.Coordenador;
+import model.ProcessoSeletivo;
 
 
 @Stateless
@@ -34,6 +37,19 @@ public class CoordenadorDAO {
 		
 		try{
 			return (Coordenador) q.getSingleResult();
+		} catch(NoResultException e) {
+			return null;
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<ProcessoSeletivo> getProcessos(int idcoordenador){
+		String qs= "select p from ProcessoSeletivo p where p.coordenador.idcoordenador= :idcoordenador";
+		Query q = em.createQuery(qs);
+		q.setParameter("idcoordenador", idcoordenador);
+		
+		try{
+			return (List<ProcessoSeletivo>) q.getResultList();
 		} catch(NoResultException e) {
 			return null;
 		}
