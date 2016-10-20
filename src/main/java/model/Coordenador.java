@@ -1,7 +1,9 @@
 package model;
 
+import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +19,10 @@ public class Coordenador {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idcoordenador;
+	@Column(nullable=false)
+	private Date inicio_alocacao;
+	@Column(nullable=false)
+	private Date fim_alocacao;
 	
 	@OneToOne
 	@JoinColumn(name="idusuario")
@@ -44,5 +50,21 @@ public class Coordenador {
 
 	public void setProcessos(List<ProcessoSeletivo> processos) {
 		this.processos = processos;
+	}
+
+	public Date getInicio_alocacao() {
+		return inicio_alocacao;
+	}
+
+	public void setInicio_alocacao(Date inicio_alocacao) {
+		this.inicio_alocacao = inicio_alocacao;
+	}
+	
+	public Date getFim_alocacao() {
+		return fim_alocacao;
+	}
+
+	public void setFim_alocacao(Date fim_alocacao) {
+		this.fim_alocacao = fim_alocacao;
 	}
 }
