@@ -2,6 +2,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
 	template="/include/template.xhtml">
 	
 	<ui:define name="titulo">
@@ -15,22 +16,25 @@
 	
 	<ui:define name="conteudo">	
 		<div class="col-lg-3 col-centered">
-			<h:form class="">
-				<h:messages />
-				<div class='form-group'>
-					<label for="data">Email</label>
-					<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
-					<h:inputText class='form-control' value="#{usuarioMB.usuario.email}" required="true" requiredMessage="Login obrigatório" />
-				</div>
-				<div class='form-group'>
-					<label for="data">Senha</label>
-					<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
-					<h:inputSecret class='form-control' value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="Senha obrigatória" />
-				</div>
-				<div style="text-align: center">
-					<h:commandButton action="#{usuarioMB.login}" value="Login" class="btn btn-default" />
-				</div>
-			</h:form>
+			<div class="panel panel-default">
+				<div class="panel-body">
+	    			<h:form>
+						<h:messages />
+						<div class='form-group input-group'>
+							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-at" aria-hidden="true"></i></span>
+							<h:inputText class='form-control' value="#{usuarioMB.usuario.email}" a:placeholder="Email" required="true" requiredMessage="Login obrigatório" />
+						</div>
+						<div class='form-group input-group'>
+							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
+							<h:inputSecret class='form-control' value="#{usuarioMB.usuario.senha}" a:placeholder="Senha" required="true" requiredMessage="Senha obrigatória" />
+						</div>
+						<div style="text-align: center">
+							<h:commandButton action="#{usuarioMB.login}" value="Login" class="btn btn-default" />
+						</div>
+					</h:form>
+	  			</div>
+			</div>
+			
 		</div>		
 	</ui:define>
 	
