@@ -6,7 +6,7 @@ insert into usuario (idusuario, nome, cpf, data_nascimento, email, receber_email
 
 insert into administrador (idadministrador, idusuario) values (1, 1);
 
-insert into coordenador (idcoordenador, idusuario) values (1, 2);
+insert into coordenador (idcoordenador, idusuario, inicio_alocacao, fim_alocacao) values (1, 2, "2016-10-20", "2017-10-20");
 
 insert into graduado (idgraduado, idusuario) values (1, 3);
 
