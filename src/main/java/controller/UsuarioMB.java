@@ -41,18 +41,13 @@ public class UsuarioMB {
 	}
 	
 	public String getMenu(){
-		if(true){ // session == true
-			if(isAdmin()){
-				return "menu_admin.xhtml";
-			}
-			else if(isCoord()){
-				return "menu_coord.xhtml";
-			}
-			else if(isGrad()){
-				return "menu_grad.xhtml";
-			}
-		}
-		return "menu_exter.xhtml";
+		try {
+			return "menu_" + usuario.getNome_permissao() + ".xhtml";
+		 } catch(NullPointerException ex) {
+		 
+		 }
+		
+		return "menu_externo.xhtml";
 	}
 	
 	private void setListaMensagens(List<Mensagem> listaMensagens) {
@@ -63,6 +58,7 @@ public class UsuarioMB {
 		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
 		if(u!= null){
 			if(u.getSenha().equals(usuario.getSenha())) {
+				usuario = u;
 				return"/interna/home.jsf";
 			} else{
 				FacesMessage msg = new FacesMessage("Email e/ou senha incorretos");
