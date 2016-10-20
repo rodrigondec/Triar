@@ -35,7 +35,7 @@ public class ProcessoSeletivoMB {
 	}
 	
 	public List<ProcessoSeletivo> getProcessos(){
-		setProcessos(processoDAO.listar());
+		setProcessos(processoDAO.listarProcessos());
 		return processos;
 	}
 }

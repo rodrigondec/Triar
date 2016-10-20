@@ -29,7 +29,7 @@ public class ProcessoSeletivoDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<ProcessoSeletivo> listar(){
+	public List<ProcessoSeletivo> listarProcessos(){
 		String qs = "select p from ProcessoSeletivo p";
 		Query q = em.createQuery(qs);
 		return (List<ProcessoSeletivo>) q.getResultList();
