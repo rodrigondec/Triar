@@ -22,6 +22,8 @@ public class UsuarioMB {
 	
 	private List<Mensagem> listaMensagens;
 	
+	private List<Usuario> usuarios;
+	
 	public UsuarioMB(){
 		setUsuario(new Usuario());
 		setListaMensagens(new ArrayList<Mensagem>()); 
@@ -41,12 +43,11 @@ public class UsuarioMB {
 	}
 	
 	public String getMenu(){
-		try {
+		try{
 			return "menu_" + usuario.getNome_permissao() + ".xhtml";
 		 } catch(NullPointerException ex) {
 		 
 		 }
-		
 		return "menu_externo.xhtml";
 	}
 	
