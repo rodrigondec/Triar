@@ -31,7 +31,7 @@ public class SituacaoMB {
 	}
 
 	public List<Situacao> getSituacoes() {
-		setSituacoes(situacaoDAO.listar());
+		setSituacoes(situacaoDAO.listarSituacoes());
 		return situacoes;
 	}
 

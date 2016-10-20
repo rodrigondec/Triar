@@ -29,7 +29,7 @@ public class SituacaoDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Situacao> listar() {
+	public List<Situacao> listarSituacoes() {
 		String qs = "select s from Situacao s";
 		Query q = em.createQuery(qs);
 		return (List<Situacao>) q.getResultList();
