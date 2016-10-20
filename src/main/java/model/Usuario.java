@@ -108,4 +108,8 @@ public class Usuario {
 	public void setReceber_email(Boolean receber_email) {
 		this.receber_email = receber_email;
 	}
+
+	public String getNome_permissao(){
+		return permissao.getNome();
+	}
 }
