@@ -17,6 +17,7 @@ public class CoordenadorMB {
 	private Coordenador coordenador;
 	@Inject 
 	private CoordenadorDAO coordenadorDAO;
+	
 	private List<ProcessoSeletivo> processos;
 	
 	public CoordenadorMB(){
@@ -33,6 +34,7 @@ public class CoordenadorMB {
 	}
 
 	public List<ProcessoSeletivo> getProcessos() {
+		setProcessos(coordenadorDAO.getProcessos(1));
 		return processos;
 	}
 
