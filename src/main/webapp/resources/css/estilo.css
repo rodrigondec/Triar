@@ -15,3 +15,7 @@ body {
 .table-hover > tbody > tr:hover > td{
     background-color: #eaeaea;
 }
+
+.fa{
+	width: 10px;
+}
