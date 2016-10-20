@@ -10,5 +10,5 @@ insert into coordenador (idcoordenador, idusuario) values (1, 2);
 
 insert into graduado (idgraduado, idusuario) values (1, 3);
 
-insert into processo_seletivo (idprocesso, curso, data_inicio, data_fim, edital, idcoordenador) values (1, "TI", "2016-10-20", "2016-12-31", "../matricula.pdf", 1);
+insert into processo_seletivo (idprocesso, curso, data_inicio, data_fim, idcoordenador) values (1, "TI", "2016-10-20", "2016-12-31", 1);
 

@@ -22,7 +22,7 @@ public class ProcessoSeletivo {
 	private int idprocesso;
 	@Column(nullable=false)
 	private String curso;
-	@Column(nullable=false)
+//	@Column(nullable=false)
 	private File edital;
 	@Column(nullable=false)
 	private Date data_inicio;
