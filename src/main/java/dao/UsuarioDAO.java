@@ -57,4 +57,11 @@ public class UsuarioDAO {
 		}
 		return false;
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Usuario> listarUsuarios() {
+		String qs = "select u from Usuario u";
+		Query q = em.createQuery(qs);
+		return (List<Usuario>) q.getResultList();
+	}
 }

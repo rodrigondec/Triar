@@ -72,4 +72,13 @@ public class UsuarioMB {
 		}
 		return null;
 	}
+	
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
+
+	public List<Usuario> getUsuarios() {
+		setUsuarios(usuarioDAO.listarUsuarios());
+		return usuarios;
+	}	
 }
