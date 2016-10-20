@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Triar - Validar Coordenador</title>
+	</ui:define>
+
+	<ui:define name="header">
+		<h2>Validar Coordenador</h2>
+		<hr></hr>
+	</ui:define>
+	
+	<ui:define name="conteudo">	
+		<div class="col-lg-3 col-centered">		
+			<h:form>
+				<h:messages />
+				<div class='form-group'>
+					<label for="data">Pessoa</label>
+					<h:selectOneMenu class='form-control' value="#{coordenadorMB.coordenador.usuario.idusuario}" required="true" requiredMessage="usuário obrigatório">
+					    <f:selectItem itemLabel="Selecione o usuário"/>
+					    <f:selectItems value="#{usuarioMB.usuarios}" var="u" itemValue="#{u.idusuario}" itemLabel="#{u.nome}" />
+					</h:selectOneMenu>
+				</div>
+				<div class='form-group'>
+					<label for="data">Início Alocação</label>
+					<h:inputText class='form-control' value="#{coordenadorMB.coordenador.inicio_alocacao}" required="true" requiredMessage="data do início da alocação obrigatória">						<f:convertDateTime pattern="yyyy-MM-dd" />
+					</h:inputText>
+				</div>
+				<div class='form-group'>
+					<label for="data">Fim Alocação</label>
+					<h:inputText class='form-control' value="#{coordenadorMB.coordenador.fim_alocacao}" required="true" requiredMessage="data do termino da alocação obrigatória">
+						<f:convertDateTime pattern="yyyy-MM-dd" />
+					</h:inputText>
+				</div>
+				<div style="text-align: center">
+					<h:commandButton action="#{coordenadorMB.validar}" value="validar" class="btn btn-default" />
+				</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
