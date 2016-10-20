@@ -31,5 +31,13 @@ public class Permissao {
 	public void setIdpermissao(int idpermissao) {
 		this.idpermissao = idpermissao;
 	}
+
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 	
 }

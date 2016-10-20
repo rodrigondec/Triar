@@ -23,4 +23,8 @@ public class PermissaoDAO {
 		x = em.find(Permissao.class, x.getIdpermissao());
 		em.remove(x);
 	}
+	
+	public String getNomepermissao(int idpermissao){
+		return em.find(Permissao.class, idpermissao).getNome();
+	}
 }
