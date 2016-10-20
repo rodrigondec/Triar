@@ -78,7 +78,7 @@ public class UsuarioMB {
 		this.usuarios = usuarios;
 	}
 
-	public List<Usuario> getUsuarios() {
+	public List<Usuario> getUsuarios(){
 		setUsuarios(usuarioDAO.listarUsuarios());
 		return usuarios;
 	}	
