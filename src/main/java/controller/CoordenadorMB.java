@@ -39,4 +39,8 @@ public class CoordenadorMB {
 	public void setProcessos(List<ProcessoSeletivo> processos) {
 		this.processos = processos;
 	}
+	
+	public String validar(){
+		return "/Triar/interna/administrador";
+	}
 }
