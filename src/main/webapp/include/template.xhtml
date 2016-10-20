@@ -18,7 +18,11 @@
 	</h:head>
 	
 	<h:body>
-		<ui:include src="#{usuarioMB.menu}" />
+		<!-- <ui:include src="#{usuarioMB.menu}" /> -->
+		<!-- <ui:include src="menu_externo.xhtml" /> -->
+		<ui:include src="menu_administrador.xhtml" />
+		<!-- <ui:include src="menu_coordenador.xhtml" /> -->
+		<!-- <ui:include src="menu_graduado.xhtml" /> -->
 		
 		<div class='text-center'>
 	    	<ui:insert name="header">Título</ui:insert>
@@ -26,9 +30,7 @@
 		
 	    <div class="container">
 	    	<div class="row">
-	    		<div class="col-lg-5 col-centered">
-					<ui:insert name="conteudo" >Conteúdo</ui:insert>
-				</div>
+	    		<ui:insert name="conteudo" >Conteúdo</ui:insert>
 	    	</div>
 	        
 	        <ui:include src="footer.xhtml" />

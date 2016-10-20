@@ -13,22 +13,24 @@
 		<hr></hr>
 	</ui:define>
 	
-	<ui:define name="conteudo">			
-		<h:form>
-			<h:messages />
-			<div class='form-group'>
-				<label for="data">Título</label>
-				<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
-				<h:inputText class='form-control' value="#{noticiaMB.noticia.titulo}" required="true" requiredMessage="título obrigatório" />
-			</div>
-			<div class='form-group'>
-				<label for="data">Conteúdo</label>
-				<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
-				<h:inputTextarea class='form-control' value="#{noticiaMB.noticia.corpo}" required="true" requiredMessage="conteúdo obrigatória" />
-			</div>
-			<div style="text-align: center">
-				<h:commandButton action="#{usuarioMB.login}" value="Login" class="btn btn-default" />
-			</div>
-		</h:form>
+	<ui:define name="conteudo">	
+		<div class="col-lg-3 col-centered">		
+			<h:form>
+				<h:messages />
+				<div class='form-group'>
+					<label for="data">Título</label>
+					<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
+					<h:inputText class='form-control' value="#{noticiaMB.noticia.titulo}" required="true" requiredMessage="título obrigatório" />
+				</div>
+				<div class='form-group'>
+					<label for="data">Conteúdo</label>
+					<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
+					<h:inputTextarea class='form-control' value="#{noticiaMB.noticia.corpo}" required="true" requiredMessage="conteúdo obrigatória" />
+				</div>
+				<div style="text-align: center">
+					<h:commandButton action="#{usuarioMB.login}" value="Login" class="btn btn-default" />
+				</div>
+			</h:form>
+		</div>
 	</ui:define>
 </ui:composition>

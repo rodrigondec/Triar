@@ -5,30 +5,33 @@
 	template="/include/template.xhtml">
 	
 	<ui:define name="titulo">
-		<title>Login</title>
+		<title>Triar - Entrar</title>
 	</ui:define>
 
 	<ui:define name="header">
-		<h2>Login</h2>
+		<h2>Entrar</h2>
 		<hr></hr>
 	</ui:define>
 	
-	<ui:define name="conteudo">			
-		<h:form class="">
-			<h:messages />
-			<div class='form-group'>
-				<label for="data">Email</label>
-				<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
-				<h:inputText class='form-control' value="#{usuarioMB.usuario.email}" required="true" requiredMessage="Login obrigatório" />
-			</div>
-			<div class='form-group'>
-				<label for="data">Senha</label>
-				<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
-				<h:inputSecret class='form-control' value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="Senha obrigatória" />
-			</div>
-			<div style="text-align: center">
-				<h:commandButton action="#{usuarioMB.login}" value="Login" class="btn btn-default" />
-			</div>
-		</h:form>
+	<ui:define name="conteudo">	
+		<div class="col-lg-3 col-centered">
+			<h:form class="">
+				<h:messages />
+				<div class='form-group'>
+					<label for="data">Email</label>
+					<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
+					<h:inputText class='form-control' value="#{usuarioMB.usuario.email}" required="true" requiredMessage="Login obrigatório" />
+				</div>
+				<div class='form-group'>
+					<label for="data">Senha</label>
+					<!-- <span class="input-group-addon" id="basic-addon1">Data</span>			 -->
+					<h:inputSecret class='form-control' value="#{usuarioMB.usuario.senha}" required="true" requiredMessage="Senha obrigatória" />
+				</div>
+				<div style="text-align: center">
+					<h:commandButton action="#{usuarioMB.login}" value="Login" class="btn btn-default" />
+				</div>
+			</h:form>
+		</div>		
 	</ui:define>
+	
 </ui:composition>

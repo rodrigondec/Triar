@@ -5,20 +5,22 @@
 	template="/include/template.xhtml">
 	
 	<ui:define name="titulo">
-		<title>Processos Seletivos</title>
+		<title>Triar - Listar Situações</title>
 	</ui:define>
 	
 	<ui:define name="header">
-		<h2>Processos</h2>
+		<h2>Situações</h2>
 		<hr></hr>
 	</ui:define>
 	
 	<ui:define name="conteudo">
-		<h:dataTable value="#{situacaoMB.situacoes}" var="s">
-			<h:column>
-				<f:facet name="header">Nome</f:facet>
-				<h:outputText value="#{s.nome}" />
-			</h:column>
-		</h:dataTable>
+		<div class="col-lg-3 col-centered">
+			<h:dataTable value="#{situacaoMB.situacoes}" var="s">
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{s.nome}" />
+				</h:column>
+			</h:dataTable>
+		</div>
 	</ui:define>
 </ui:composition>
