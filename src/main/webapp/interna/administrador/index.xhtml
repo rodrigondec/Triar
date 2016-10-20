@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Triar - Página inicial</title>
+	</ui:define>
+
+	<ui:define name="header">
+	</ui:define>
+	
+	<ui:define name="conteudo">	
+		<!-- <div class="col-lg-3 col-centered">		
+			<h:dataTable value="#{processoSeletivoMB.processos}" var="p">
+				<h:column>
+					<f:facet name="header">Curso</f:facet>
+					<h:outputText value="#{p.curso}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Data início</f:facet>
+					<h:outputText value="#{p.data_inicio}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Data fim</f:facet>
+					<h:outputText value="#{p.data_fim}" />
+				</h:column>
+			</h:dataTable>
+		</div> -->
+		<HR />
+		<div class="col-lg-3 col-centered">		
+			<h:dataTable value="#{usuarioMB.usuarios}" var="u">
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{u.nome}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">CPF</f:facet>
+					<h:outputText value="#{u.cpf}" />
+				</h:column>
+			</h:dataTable>
+		</div>
+	</ui:define>
+</ui:composition>
