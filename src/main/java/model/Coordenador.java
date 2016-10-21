@@ -40,8 +40,16 @@ public class Coordenador {
 		return usuario;
 	}
 	
-	public void setIdusuario(Usuario usuario) {
+	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	public void setIdusuario(int idusuario) {
+		this.usuario.setIdusuario(idusuario);
+	}
+	
+	public int getIdusuario() {
+		return usuario.getIdusuario();
 	}
 
 	public List<ProcessoSeletivo> getProcessos() {
