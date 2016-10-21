@@ -20,14 +20,15 @@
 				<h:messages />
 				<div class='form-group input-group'>
 					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
-					<h:selectOneMenu class='form-control' value="#{coordenadorMB.coordenador.usuario.idusuario}" required="true" requiredMessage="usuário obrigatório">
+					<h:selectOneMenu class='form-control' value="#{coordenadorMB.coordenador.usuario}" required="true" requiredMessage="usuário obrigatório">
 					    <f:selectItem itemLabel="Selecione o usuário"/>
-					    <f:selectItems value="#{usuarioMB.usuarios}" var="u" itemValue="#{u.idusuario}" itemLabel="#{u.nome}" />
+					    <f:selectItems value="#{usuarioMB.usuarios}" var="u" itemValue="#{u}" itemLabel="#{u.nome}" />
 					</h:selectOneMenu>
 				</div>
 				<div class='form-group input-group'>
 					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-					<h:inputText class='form-control' value="#{coordenadorMB.coordenador.inicio_alocacao}" a:placeholder="Data início" required="true" requiredMessage="data do início da alocação obrigatória">						<f:convertDateTime pattern="yyyy-MM-dd" />
+					<h:inputText class='form-control' value="#{coordenadorMB.coordenador.inicio_alocacao}" a:placeholder="Data início" required="true" requiredMessage="data do início da alocação obrigatória">
+						<f:convertDateTime pattern="yyyy-MM-dd" />
 					</h:inputText>
 				</div>
 				<div class='form-group input-group'>
