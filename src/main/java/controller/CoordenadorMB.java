@@ -34,7 +34,7 @@ public class CoordenadorMB {
 	}
 
 	public List<ProcessoSeletivo> getProcessos() {
-		setProcessos(coordenadorDAO.getProcessos(1));
+		setProcessos(coordenadorDAO.listarProcessos(1));
 		return processos;
 	}
 

@@ -30,7 +30,7 @@ public class CoordenadorDAO {
 		em.remove(x);
 	}
 	
-	public Coordenador getCoordenador(int idusuario){
+	public Coordenador buscarCoordenador(int idusuario){
 		String qs= "select c from Coordenador c where c.usuario.idusuario= :idusuario";
 		Query q = em.createQuery(qs);
 		q.setParameter("idusuario", idusuario);
@@ -43,7 +43,7 @@ public class CoordenadorDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<ProcessoSeletivo> getProcessos(int idcoordenador){
+	public List<ProcessoSeletivo> listarProcessos(int idcoordenador){
 		String qs= "select p from ProcessoSeletivo p where p.coordenador.idcoordenador= :idcoordenador";
 		Query q = em.createQuery(qs);
 		q.setParameter("idcoordenador", idcoordenador);

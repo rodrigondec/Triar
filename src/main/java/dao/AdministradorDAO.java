@@ -27,7 +27,7 @@ public class AdministradorDAO {
 		em.remove(x);
 	}
 	
-	public Administrador getAdministrador(int idusuario){
+	public Administrador buscarAdministrador(int idusuario){
 		String qs= "select a from Administrador a where a.usuario.idusuario= :idusuario";
 		Query q = em.createQuery(qs);
 		q.setParameter("idusuario", idusuario);
