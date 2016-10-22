@@ -9,8 +9,7 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1" />
     
 		<ui:insert name="titulo">Título</ui:insert>
-		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link> -->
-		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+		
 		<h:outputStylesheet library="webjars" name="bootstrap/3.3.6/css/bootstrap.min-jsf.css" />
 	    <h:outputStylesheet library="webjars" name="bootstrap/3.3.6/css/bootstrap-theme.min-jsf.css" />
 	    <h:outputStylesheet library="webjars" name="font-awesome/4.5.0/css/font-awesome.min-jsf.css" />
@@ -18,25 +17,31 @@
 	</h:head>
 	
 	<h:body>
-		<!-- <ui:include src="#{usuarioMB.menu}" /> -->
-		<!-- <ui:include src="menu_externo.xhtml" /> -->
-		<!-- <ui:include src="menu_administrador.xhtml" /> -->
-		<!-- <ui:include src="menu_coordenador.xhtml" /> -->
-		<ui:include src="menu_graduado.xhtml" />
-		
-		<div class='text-center'>
-	    	<ui:insert name="header">Título</ui:insert>
-		</div>
-		
-	    <div class="container">
-	    	<div class="row">
-	    		<ui:insert name="conteudo" >Conteúdo</ui:insert>
-	    	</div>
-	        
-	        <ui:include src="footer.xhtml" />
-	    </div>
+		<div id="wrap">
+            <ui:include src="#{usuarioMB.menu}" />
+            <!-- <ui:include src="menu_externo.xhtml" /> -->
+			<!-- <ui:include src="menu_administrador.xhtml" /> -->
+			<!-- <ui:include src="menu_coordenador.xhtml" /> -->
+			<!-- <ui:include src="menu_graduado.xhtml" /> -->
+            
+            <div class="fluid-container">
+            	<div class="row-fluid text-center">
+            		
+           			<ui:insert name="header">Título</ui:insert>
+            		
+            	</div>
+                <div class="row-fluid">
+               		<ui:insert name="conteudo" >Conteúdo</ui:insert>
+               	</div>
+            </div>
+        </div>
+        
+        <div id="footer">
+            <div class="container text-center">
+                <ui:include src="footer.xhtml" />
+            </div>
+        </div>
 	    
-	    <!-- load js at bottom for faster loading-->
 	    <h:outputScript library="webjars" name="jquery/2.1.4/jquery.min.js"/>
 	    <h:outputScript library="webjars" name="bootstrap/3.3.6/js/bootstrap.min.js" />
 	</h:body>
