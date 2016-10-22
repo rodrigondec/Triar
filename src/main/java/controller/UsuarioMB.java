@@ -51,6 +51,15 @@ public class UsuarioMB {
 		return "menu_externo.xhtml";
 	}
 	
+	public String getHome(){
+		try{
+			return "/interna/" + usuario.getNome_permissao() + "/index.jsf";
+		 } catch(NullPointerException ex) {
+		 
+		 }
+		return null;
+	}
+	
 	private void setListaMensagens(List<Mensagem> listaMensagens) {
 		this.listaMensagens = listaMensagens;
 	}
@@ -60,7 +69,7 @@ public class UsuarioMB {
 		if(u!= null){
 			if(u.getSenha().equals(usuario.getSenha())) {
 				usuario = u;
-				return"/interna/home.jsf";
+				return getHome();
 			} else{
 				FacesMessage msg = new FacesMessage("Email e/ou senha incorretos");
 				msg.setSeverity(FacesMessage.SEVERITY_ERROR);
