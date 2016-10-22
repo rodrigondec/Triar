@@ -49,7 +49,7 @@ public class UsuarioDAO {
 		return (List<Mensagem>) q.getResultList();
 	}
 	
-	public boolean novaMensagem(){
+	public boolean temNotificacao(){
 		String qs = "select m from mensagem m where m.ativa = 1";
 		Query q = em.createQuery(qs);
 		if(q.getResultList() != null){
