@@ -32,7 +32,7 @@ public class Coordenador {
 	@JoinColumn(name="idcoordenador")
 	private List<ProcessoSeletivo> processos;
 
-	public int getIdcoordenador() {
+	public int getIdcoordenador(){
 		return idcoordenador;
 	}
 
