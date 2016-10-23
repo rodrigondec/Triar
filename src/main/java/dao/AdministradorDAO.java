@@ -1,5 +1,7 @@
 package dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -37,5 +39,12 @@ public class AdministradorDAO {
 		} catch(NoResultException e) {
 			return null;
 		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Administrador> listarAdministradores() {
+		String qs = "select a from Administrador a";
+		Query q = em.createQuery(qs);
+		return (List<Administrador>) q.getResultList();
 	}
 }
