@@ -15,29 +15,52 @@
 	</ui:define>
 	
 	<ui:define name="conteudo">	
-		<div class="col-lg-3 col-centered table-responsive container">	
-			<div class="panel panel-default">
-				<div class="panel-heading">Meus Processos Seletivos</div>
-				<h:dataTable value="#{coordenadorMB.processos}" var="p" class="table table-striped table-bordered table-hover table-condensed">
-					<h:column>
-						<f:facet name="header">Curso</f:facet>
-						<h:outputText value="#{p.curso}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Data início</f:facet>
-						<h:outputText value="#{p.data_inicio}">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-						</h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Data fim</f:facet>
-						<h:outputText value="#{p.data_fim}">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-						</h:outputText>
-					</h:column>
-				</h:dataTable>
-			</div>
+		<div class="col-lg-6 col-centered container-fluid">		
+			<h:form>
+				<h:messages />
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="row">						
+							<div class='form-group input-group'>
+								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
+								<h:inputText class='form-control' value="#{processoSeletivoMB.processo.curso}" a:placeholder="Curso" required="true" requiredMessage="Curso obrigatório" />
+							</div>
+						</div>
+						<div class="row">	
+							<div class='form-group input-group'>
+								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
+								<h:inputText class='form-control' value="#{processoSeletivoMB.vaga.sub_area}" a:placeholder="Sub-área" required="true" requiredMessage="Sub-área obrigatória" />
+							</div>
+						</div>
+						<div class="row">	
+							<div class='form-group input-group'>
+								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+								<h:inputText class='form-control' a:type="date" converter="javax.faces.DateTime" value="#{processoSeletivoMB.processo.data_inicio}" a:placeholder="Data início" required="true" requiredMessage="data do início do processo seletivo obrigatória" />
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="row">	
+							## EDITAL ##
+						</div>
+						<div class="row">	
+							<div class='form-group input-group'>
+								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
+								<h:inputText class='form-control' value="#{processoSeletivoMB.vaga.quantidade}" a:placeholder="Quantidade de Vagas" required="true" requiredMessage="Quantidade de vagas obrigatório" />
+							</div>
+						</div>
+						<div class="row">	
+							<div class='form-group input-group'>
+								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+								<h:inputText class='form-control' a:type="date" converter="DateCV" value="#{processoSeletivoMB.processo.data_fim}" a:placeholder="Data fim" required="true" requiredMessage="data de encerramento do processo seletivo obrigatória" />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row" style="text-align: center">
+					<h:commandButton action="#{noticiaMB.cadastrar}" value="cadastrar" class="btn btn-default" />
+				</div>
+			</h:form>
 		</div>
-
 	</ui:define>
 </ui:composition>
