@@ -39,4 +39,8 @@ public class InscricaoMB {
 		this.inscricoes = inscricoes;
 	}
 	
+	public String geturlListar(){
+		return "/interna/administrador/listar/inscricoes.jsf";
+	}
+	
 }

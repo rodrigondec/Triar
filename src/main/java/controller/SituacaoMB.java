@@ -38,4 +38,12 @@ public class SituacaoMB {
 	public void setSituacoes(List<Situacao> situacoes) {
 		this.situacoes = situacoes;
 	}
+	
+	public String geturlCadastrar(){
+		return "/interna/administrador/cadastrar/situacao.jsf";
+	}
+	
+	public String geturlListar(){
+		return "/interna/administrador/listar/situacoes.jsf";
+	}
 }

@@ -45,4 +45,12 @@ public class CoordenadorMB {
 	public String validar(){
 		return "/Triar/interna/administrador";
 	}
+	
+	public String geturlCadastrar(){
+		return "/interna/administrador/cadastrar/coordenador.jsf";
+	}
+	
+	public String geturlListar(){
+		return "/interna/administrador/listar/coordenadores.jsf";
+	}
 }

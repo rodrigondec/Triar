@@ -38,4 +38,8 @@ public class ProcessoSeletivoMB {
 		setProcessos(processoDAO.listarProcessos());
 		return processos;
 	}
+	
+	public String geturlListar(){
+		return "/interna/administrador/listar/processos_seletivos.jsf";
+	}
 }

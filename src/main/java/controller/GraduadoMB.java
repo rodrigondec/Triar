@@ -40,4 +40,11 @@ public class GraduadoMB {
 		this.processos = processos;
 	}
 	
+	public String geturlCadastrar(){
+		return "/interna/administrador/cadastrar/graduado.jsf";
+	}
+	
+	public String geturlListar(){
+		return "/interna/administrador/listar/graduados.jsf";
+	}
 }

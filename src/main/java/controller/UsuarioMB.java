@@ -91,4 +91,12 @@ public class UsuarioMB {
 		setUsuarios(usuarioDAO.listarUsuarios());
 		return usuarios;
 	}	
+	
+	public String geturlCadastrar(){
+		return "/interna/administrador/cadastrar/usuario.jsf";
+	}
+	
+	public String geturlListar(){
+		return "/interna/administrador/listar/usuarios.jsf";
+	}
 }

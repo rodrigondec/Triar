@@ -11,6 +11,7 @@ import model.Vaga;
 @RequestScoped
 public class VagaMB {
 	private Vaga vaga;
+	@SuppressWarnings("unused")
 	@Inject 
 	private VagaDAO vagaDAO;
 	
@@ -24,5 +25,13 @@ public class VagaMB {
 
 	public void setVaga(Vaga vaga) {
 		this.vaga = vaga;
+	}
+	
+	public String geturlCadastrar(){
+		return "/interna/administrador/cadastrar/vaga.jsf";
+	}
+	
+	public String geturlListar(){
+		return "/interna/administrador/listar/vagas.jsf";
 	}
 }
