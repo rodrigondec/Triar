@@ -1,0 +1,31 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Triar - Listar Notícias</title>
+	</ui:define>
+	
+	<ui:define name="header">
+		<h2>Notícias</h2>
+		<hr />
+	</ui:define>
+	
+	<ui:define name="conteudo">
+		<div class="col-lg-3 col-centered table-responsive container">
+			<h:dataTable value="#{noticiaMB.noticias}" var="n" class="table table-striped table-bordered table-hover table-condensed">
+				<h:column>
+					<f:facet name="header">Título</f:facet>
+					<h:outputText value="#{n.titulo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Corpo</f:facet>
+					<h:outputText value="#{n.corpo}" />
+				</h:column>
+			</h:dataTable>
+		</div>
+	</ui:define>
+</ui:composition>
