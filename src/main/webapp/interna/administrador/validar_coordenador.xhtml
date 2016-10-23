@@ -20,7 +20,7 @@
 				<h:messages />
 				<div class='form-group input-group'>
 					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
-					<h:selectOneMenu class='form-control' value="#{coordenadorMB.coordenador.usuario}" required="true" requiredMessage="usuário obrigatório">
+					<h:selectOneMenu class='form-control' converter="#{usuarioCV}" value="#{coordenadorMB.coordenador.usuario}" required="true" requiredMessage="usuário obrigatório">
 					    <f:selectItem itemLabel="Selecione o usuário"/>
 					    <f:selectItems value="#{usuarioMB.usuarios}" var="u" itemValue="#{u}" itemLabel="#{u.nome}" />
 					</h:selectOneMenu>
