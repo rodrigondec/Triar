@@ -20,13 +20,13 @@ public class UsuarioMB {
 	@Inject 
 	private UsuarioDAO usuarioDAO;
 	
-	private List<Mensagem> listaMensagens;
+	private List<Mensagem> mensagens;
 	
 	private List<Usuario> usuarios;
 	
 	public UsuarioMB(){
 		setUsuario(new Usuario());
-		setListaMensagens(new ArrayList<Mensagem>()); 
+		setMensagens(new ArrayList<Mensagem>()); 
 	}
 	
 	public Usuario getUsuario(){
@@ -37,9 +37,9 @@ public class UsuarioMB {
 		this.usuario = usuario;
 	}
 	
-	public List<Mensagem> getListaMensagens(){
-		setListaMensagens(usuarioDAO.listarMensagens(1));
-		return listaMensagens;
+	public List<Mensagem> getMensagens(){
+		setMensagens(usuarioDAO.listarMensagens(1));
+		return mensagens;
 	}
 	
 	public String getMenu(){
@@ -60,8 +60,8 @@ public class UsuarioMB {
 		return null;
 	}
 	
-	private void setListaMensagens(List<Mensagem> listaMensagens) {
-		this.listaMensagens = listaMensagens;
+	private void setMensagens(List<Mensagem> mensagens) {
+		this.mensagens = mensagens;
 	}
 
 	public String login(){
