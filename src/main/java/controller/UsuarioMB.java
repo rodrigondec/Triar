@@ -37,8 +37,8 @@ public class UsuarioMB {
 		this.usuario = usuario;
 	}
 	
-	public List<Mensagem> getListaMensagens() {
-		setListaMensagens(usuarioDAO.listarMensagens());
+	public List<Mensagem> getListaMensagens(){
+		setListaMensagens(usuarioDAO.listarMensagens(1));
 		return listaMensagens;
 	}
 	

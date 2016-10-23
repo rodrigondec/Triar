@@ -43,14 +43,14 @@ public class UsuarioDAO {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Mensagem> listarMensagens() {
-		String qs = "select m from Mensagem m";
+	public List<Mensagem> listarMensagens(int idusuario) {
+		String qs = "select m from Mensagem m where m.usuario.idusuario= :idusuario";
 		Query q = em.createQuery(qs);
 		return (List<Mensagem>) q.getResultList();
 	}
 	
-	public boolean temNotificacao(){
-		String qs = "select m from mensagem m where m.ativa = 1";
+	public boolean temNotificacao(int idusuario){
+		String qs = "select m from mensagem m where m.ativa = 1 and m.usuario.idusuario= :idusuario";
 		Query q = em.createQuery(qs);
 		if(q.getResultList() != null){
 			return true;
