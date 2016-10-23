@@ -28,6 +28,10 @@ public class UsuarioDAO {
 		x = em.find(Usuario.class, x.getIdusuario());
 		em.remove(x);
 	}
+	
+	public Usuario buscarIdusuario(int idusuario){
+		return em.find(Usuario.class, idusuario);
+	}
 
 	public Usuario buscarEmail(String email){
 		String qs= "select u from Usuario u where u.email= :email";
