@@ -16,8 +16,71 @@
             <div id="navbar" class="navbar-collapse collapse">
             	<ul class="nav navbar-nav">
                 	<li><a href="/Triar/interna/administrador/validar_coordenador.jsf">Validar Coordenador</a></li>
-                	<li><a href="/Triar/interna/administrador/cadastrar_noticia.jsf">Cadastrar Notícia</a></li>
-                	<li><a href="/Triar/interna/administrador/listar_situacoes.jsf">Listar Situações</a></li>
+                	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastrar... <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+            				<li>
+				                <a tabindex="-1" href="/Triar#{administradorMB.urlCadastrar}">Administrador</a>
+				            </li>
+				            <li>
+                				<a href="/Triar#{coordenadorMB.urlCadastrar}">Coordenador</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{graduadoMB.urlCadastrar}">Graduado</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{mensagemMB.urlCadastrar}">Mensagem</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{noticiaMB.urlCadastrar}">Notícia</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{permissaoMB.urlCadastrar}">Permissão</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{situacaoMB.urlCadastrar}">Situação</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{usuarioMB.urlCadastrar}">Usuário</a>
+            				</li>
+        				</ul>
+    				</li>
+    				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Listar... <b class="caret"></b></a>
+        				<ul class="dropdown-menu">
+            				<li>
+				                <a tabindex="-1" href="/Triar#{administradorMB.urlListar}">Administradores</a>
+				            </li>
+				            <li>
+                				<a href="/Triar#{coordenadorMB.urlListar}">Coordenadores</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{graduadoMB.urlListar}">Graduados</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{inscricaoMB.urlListar}">Inscrições</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{mensagemMB.urlListar}">Mensagens</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{noticiaMB.urlListar}">Notícias</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{premissaoMB.urlListar}">Permissões</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{processoSeletivoMB.urlListar}">Processos Seletivos</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{situacaoMB.urlListar}">Situações</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{usuarioMB.urlListar}">Usuários</a>
+            				</li>
+            				<li>
+                				<a href="/Triar#{vagaMB.urlListar}">Vagas</a>
+            				</li>
+        				</ul>
+    				</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 					<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog" aria-hidden="true"></i> Opções <b class="caret"></b></a>
