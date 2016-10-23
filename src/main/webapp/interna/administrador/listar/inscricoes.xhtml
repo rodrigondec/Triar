@@ -6,30 +6,22 @@
 	template="/include/template.xhtml">
 	
 	<ui:define name="titulo">
-		<title>Triar - Cadastrar Notícia </title>
+		<title>Triar - Listar Inscrições</title>
 	</ui:define>
 
 	<ui:define name="header">
-		<h2>Cadastrar Notícia</h2>
+		<h2>Inscrições</h2>
 		<hr />
 	</ui:define>
 	
-	<ui:define name="conteudo">	
-		<div class="col-lg-3 col-centered">		
-			<h:form>
-				<h:messages />
-				<div class='form-group input-group'>
-					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
-					<h:inputText class='form-control' value="#{noticiaMB.noticia.titulo}" a:placeholder="Título" required="true" requiredMessage="título obrigatório" />
-				</div>
-				<div class='form-group input-group'>
-					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-					<h:inputTextarea class='form-control' value="#{noticiaMB.noticia.corpo}" a:placeholder="Conteúdo" required="true" requiredMessage="conteúdo obrigatória" />
-				</div>
-				<div style="text-align: center">
-					<h:commandButton action="#{noticiaMB.cadastrar}" value="cadastrar" class="btn btn-default" />
-				</div>
-			</h:form>
+	<ui:define name="conteudo">
+		<div class="col-lg-3 col-centered table-responsive container">
+			<h:dataTable value="#{situacaoMB.situacoes}" var="s" class="table table-striped table-bordered table-hover table-condensed">
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{s.nome}" />
+				</h:column>
+			</h:dataTable>
 		</div>
 	</ui:define>
 </ui:composition>
