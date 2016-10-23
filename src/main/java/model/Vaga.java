@@ -20,6 +20,7 @@ public class Vaga {
 	private int idvaga;
 	@Column(nullable=false)
 	private String sub_area;
+	private int quantidade;
 	
 	@ManyToOne
 	@JoinColumn(name="idprocesso")
@@ -55,5 +56,13 @@ public class Vaga {
 
 	public void setInscricao(List<Inscricao> inscricoes) {
 		this.inscricoes = inscricoes;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}
 }
