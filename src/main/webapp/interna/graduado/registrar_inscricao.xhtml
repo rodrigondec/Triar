@@ -15,29 +15,19 @@
 	</ui:define>
 	
 	<ui:define name="conteudo">	
-		<div class="col-lg-3 col-centered table-responsive container">	
-			<div class="panel panel-default">
-				<div class="panel-heading">Meus Processos Seletivos</div>
-				<h:dataTable value="#{coordenadorMB.processos}" var="p" class="table table-striped table-bordered table-hover table-condensed">
-					<h:column>
-						<f:facet name="header">Curso</f:facet>
-						<h:outputText value="#{p.curso}" />
-					</h:column>
-					<h:column>
-						<f:facet name="header">Data início</f:facet>
-						<h:outputText value="#{p.data_inicio}">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-						</h:outputText>
-					</h:column>
-					<h:column>
-						<f:facet name="header">Data fim</f:facet>
-						<h:outputText value="#{p.data_fim}">
-							<f:convertDateTime pattern="dd/MM/yyyy" />
-						</h:outputText>
-					</h:column>
-				</h:dataTable>
-			</div>
+		<div class="col-lg-3 col-centered container">	
+			<h:form>
+				<h:messages />
+				<div class='form-group input-group'>
+					<span class="input-group-addon" id="basic-addon1">Processo</span>
+					<h:selectOneMenu class='form-control' converter="#{processoCV}" value="#{inscricaoMB.processo}" required="true" requiredMessage="processo seletivo obrigatório">
+					    <f:selectItems value="#{processoSeletivoMB.processos}" var="p" itemValue="#{p}" itemLabel="#{p.curso} | #{p.data_inicio}" />
+					</h:selectOneMenu>
+				</div>
+				<div style="text-align: center">
+					<h:commandButton action="#{inscricaoMB.cadastrar}" value="selecionar" class="btn btn-default" />
+				</div>
+			</h:form>
 		</div>
-
 	</ui:define>
 </ui:composition>
