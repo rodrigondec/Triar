@@ -43,7 +43,7 @@ public class CoordenadorMB {
 	}
 	
 	public String validar(){
-		return "/Triar/interna/administrador";
+		return "/interna/administrador";
 	}
 	
 	public String geturlCadastrar(){
