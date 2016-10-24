@@ -57,4 +57,8 @@ public class ProcessoSeletivoMB {
 	public void setVaga(Vaga vaga) {
 		this.vaga = vaga;
 	}
+	
+	public String finalizar(){
+		return "/interna/coordenador/";
+	}
 }
