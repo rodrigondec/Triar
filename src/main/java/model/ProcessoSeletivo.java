@@ -80,4 +80,15 @@ public class ProcessoSeletivo {
 	public void setVagas(List<Vaga> vagas) {
 		this.vagas = vagas;
 	}
+	
+	@Override
+	public boolean equals(Object o){
+		if(this == o){
+			return true;
+		}
+        if(o == null || getClass() != o.getClass()){
+        	return false;
+        }
+		return true;
+	}
 }
