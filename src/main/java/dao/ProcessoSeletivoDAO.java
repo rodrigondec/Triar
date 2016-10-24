@@ -34,4 +34,8 @@ public class ProcessoSeletivoDAO {
 		Query q = em.createQuery(qs);
 		return (List<ProcessoSeletivo>) q.getResultList();
 	}
+
+	public ProcessoSeletivo buscarIdprocesso(int idprocesso) {
+		return em.find(ProcessoSeletivo.class, idprocesso);
+	}
 }
