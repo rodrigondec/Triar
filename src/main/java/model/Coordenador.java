@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="coordenador")
@@ -19,8 +21,10 @@ public class Coordenador {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idcoordenador;
+	@Temporal(TemporalType.DATE)
 	@Column(nullable=false)
 	private Date inicio_alocacao;
+	@Temporal(TemporalType.DATE)
 	@Column(nullable=false)
 	private Date fim_alocacao;
 	

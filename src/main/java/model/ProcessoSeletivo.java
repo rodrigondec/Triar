@@ -1,7 +1,7 @@
 package model;
 
 import java.io.File;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name="processo_seletivo")
@@ -24,10 +26,14 @@ public class ProcessoSeletivo {
 	private String curso;
 //	@Column(nullable=false)
 	private File edital;
+	@Temporal(TemporalType.DATE)
 	@Column(nullable=false)
 	private Date data_inicio;
+	@Temporal(TemporalType.DATE)
 	@Column(nullable=false)
 	private Date data_fim;
+	@Column(nullable=false)
+	boolean finalizado = false;
 	
 	@ManyToOne
 	@JoinColumn(name="idcoordenador")
