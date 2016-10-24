@@ -19,15 +19,11 @@
 			<h:form>
 				<h:messages />
 				<div class='form-group input-group'>
-					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
-					<h:inputText class='form-control' value="#{noticiaMB.noticia.titulo}" a:placeholder="Título" required="true" requiredMessage="título obrigatório" />
-				</div>
-				<div class='form-group input-group'>
 					<span class="input-group-addon" id="basic-addon1"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
-					<h:inputTextarea class='form-control' value="#{noticiaMB.noticia.corpo}" a:placeholder="Conteúdo" required="true" requiredMessage="conteúdo obrigatória" />
+					<h:inputText class='form-control' value="#{situacaoMB.situacao.nome}" a:placeholder="Nome" required="true" requiredMessage="nome obrigatório" />
 				</div>
 				<div style="text-align: center">
-					<h:commandButton action="#{noticiaMB.cadastrar}" value="cadastrar" class="btn btn-default" />
+					<h:commandButton action="#{situacaoMB.cadastrar}" value="cadastrar" class="btn btn-default" />
 				</div>
 			</h:form>
 		</div>
