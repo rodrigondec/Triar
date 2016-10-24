@@ -42,4 +42,12 @@ public class PermissaoMB {
 	public String geturlListar(){
 		return "/interna/administrador/listar/permissoes.jsf";
 	}
+	
+	public String cadastrar(){
+		permissaoDAO.salvar(permissao);
+		
+		permissao = new Permissao();
+		
+		return geturlListar();
+	}
 }

@@ -42,4 +42,12 @@ public class MensagemMB {
 	public String geturlListar(){
 		return "/interna/administrador/listar/mensagens.jsf";
 	}
+	
+	public String cadastrar(){
+		mensagemDAO.salvar(mensagem);
+		
+		mensagem = new Mensagem();
+		
+		return geturlListar();
+	}
 }

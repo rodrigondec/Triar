@@ -8,6 +8,7 @@ import javax.inject.Inject;
 
 import dao.InscricaoDAO;
 import model.Inscricao;
+import model.ProcessoSeletivo;
 
 @ManagedBean
 @RequestScoped
@@ -17,6 +18,8 @@ public class InscricaoMB {
 	private InscricaoDAO inscricaoDAO;
 	
 	private List<Inscricao> inscricoes;
+	
+	private ProcessoSeletivo processo;
 
 	public InscricaoMB(){
 		setInscricao(new Inscricao());
@@ -42,5 +45,21 @@ public class InscricaoMB {
 	public String geturlListar(){
 		return "/interna/administrador/listar/inscricoes.jsf";
 	}
+
+	public ProcessoSeletivo getProcesso() {
+		return processo;
+	}
+
+	public void setProcesso(ProcessoSeletivo processo) {
+		this.processo = processo;
+	}
 	
+	public String cadastrar(){
+		//FALTA PEGAR VAGA
+		inscricaoDAO.salvar(inscricao);
+		
+		inscricao = new Inscricao();
+		
+		return "/interna/graduado/index.jsf";
+	}
 }

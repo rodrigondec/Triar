@@ -47,4 +47,12 @@ public class GraduadoMB {
 	public String geturlListar(){
 		return "/interna/administrador/listar/graduados.jsf";
 	}
+	
+	public String cadastrar(){
+		graduadoDAO.salvar(graduado);
+		
+		graduado = new Graduado();
+		
+		return geturlListar();
+	}
 }

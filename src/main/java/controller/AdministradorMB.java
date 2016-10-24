@@ -43,4 +43,12 @@ public class AdministradorMB {
 	public void setAdministradores(List<Administrador> administradores) {
 		this.administradores = administradores;
 	}
+	
+	public String cadastrar(){
+		administradorDAO.salvar(administrador);
+		
+		administrador = new Administrador();
+		
+		return geturlListar();
+	}
 }

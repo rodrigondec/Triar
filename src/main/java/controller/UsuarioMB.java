@@ -99,4 +99,12 @@ public class UsuarioMB {
 	public String geturlListar(){
 		return "/interna/administrador/listar/usuarios.jsf";
 	}
+	
+	public String cadastrar(){
+		usuarioDAO.salvar(usuario);
+		
+		usuario = new Usuario();
+		
+		return geturlListar();
+	}
 }

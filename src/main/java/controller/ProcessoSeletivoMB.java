@@ -21,6 +21,7 @@ public class ProcessoSeletivoMB {
 	private List<ProcessoSeletivo> processos;
 	
 	private Vaga vaga;
+	@SuppressWarnings("unused")
 	@Inject
 	private VagaDAO vagaDAO;
 
@@ -59,6 +60,15 @@ public class ProcessoSeletivoMB {
 	}
 	
 	public String finalizar(){
-		return "/interna/coordenador/";
+		return "/interna/coordenador/index.jsf";
+	}
+	
+	public String cadastrar(){
+		//FALTA VAGA
+		processoDAO.salvar(processo);
+		
+		processo = new ProcessoSeletivo();
+		
+		return "/interna/coordenador/index.jsf";
 	}
 }

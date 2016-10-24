@@ -46,4 +46,12 @@ public class SituacaoMB {
 	public String geturlListar(){
 		return "/interna/administrador/listar/situacoes.jsf";
 	}
+	
+	public String cadastrar(){
+		situacaoDAO.salvar(situacao);
+		
+		situacao = new Situacao();
+		
+		return geturlListar();
+	}
 }

@@ -53,4 +53,12 @@ public class CoordenadorMB {
 	public String geturlListar(){
 		return "/interna/administrador/listar/coordenadores.jsf";
 	}
+	
+	public String cadastrar(){
+		coordenadorDAO.salvar(coordenador);
+		
+		coordenador = new Coordenador();
+		
+		return geturlListar();
+	}
 }

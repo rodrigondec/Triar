@@ -27,10 +27,6 @@ public class VagaMB {
 		this.vaga = vaga;
 	}
 	
-	public String geturlCadastrar(){
-		return "/interna/administrador/cadastrar/vaga.jsf";
-	}
-	
 	public String geturlListar(){
 		return "/interna/administrador/listar/vagas.jsf";
 	}
