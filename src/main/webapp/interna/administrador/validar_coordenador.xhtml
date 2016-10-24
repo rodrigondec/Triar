@@ -26,11 +26,15 @@
 				</div>
 				<div class='form-group input-group'>
 					<span class="input-group-addon" id="basic-addon1">Data Início</span>
-					<h:inputText class='form-control' a:type="date" converter="javax.faces.DateTime" value="#{coordenadorMB.coordenador.inicio_alocacao}" a:placeholder="Data início" required="true" requiredMessage="data de início da alocação obrigatória" />
+					<h:inputText class='form-control' a:type="date" value="#{coordenadorMB.coordenador.inicio_alocacao}" a:placeholder="Data início" required="true" requiredMessage="data de início da alocação obrigatória">
+						<f:convertDateTime pattern="yyyy-mm-dd" />
+					</h:inputText>
 				</div>
 				<div class='form-group input-group'>
 					<span class="input-group-addon" id="basic-addon1">Data Fim</span>
-					<h:inputText class='form-control' a:type="date" converter="javax.faces.DateTime" value="#{coordenadorMB.coordenador.fim_alocacao}" a:placeholder="Data fim" required="true" requiredMessage="data de término da alocação obrigatória" />
+					<h:inputText class='form-control' a:type="date" value="#{coordenadorMB.coordenador.fim_alocacao}" a:placeholder="Data fim" required="true" requiredMessage="data de término da alocação obrigatória">
+						<f:convertDateTime pattern="yyyy-mm-dd" />
+					</h:inputText>
 				</div>
 				<div style="text-align: center">
 					<h:commandButton action="#{coordenadorMB.validar}" value="validar" class="btn btn-default" />
