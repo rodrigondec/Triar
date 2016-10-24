@@ -23,7 +23,7 @@ public class UsuarioCV implements Converter{
 		int id = Integer.parseInt(idusuario);
 		
 		Usuario usuario = usuarioDAO.buscarIdusuario(id);
-		
+		System.out.println(usuario.getNome());
 		return usuario;
 	}
 
