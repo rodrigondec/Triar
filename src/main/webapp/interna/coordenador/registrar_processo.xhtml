@@ -19,7 +19,7 @@
 			<h:form>
 				<h:messages />
 				<div class="row">
-					<div class="col-lg-6">
+					<div class="col-lg-5">
 						<div class="row">						
 							<div class='form-group input-group'>
 								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
@@ -39,7 +39,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-6">
+					<div class="col-lg-5 col-lg-offset-2">
 						<div class="row">	
 							## EDITAL ##
 						</div>
@@ -52,7 +52,7 @@
 						<div class="row">	
 							<div class='form-group input-group'>
 								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-								<h:inputText class='form-control' a:type="date" converter="DateCV" value="#{processoSeletivoMB.processo.data_fim}" a:placeholder="Data fim" required="true" requiredMessage="data de encerramento do processo seletivo obrigatória" />
+								<h:inputText class='form-control' a:type="date" converter="javax.faces.DateTime" value="#{processoSeletivoMB.processo.data_fim}" a:placeholder="Data fim" required="true" requiredMessage="data de encerramento do processo seletivo obrigatória" />
 							</div>
 						</div>
 					</div>
