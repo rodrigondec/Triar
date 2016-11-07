@@ -10,6 +10,6 @@ insert into coordenador (idcoordenador, idusuario, inicio_alocacao, fim_alocacao
 
 insert into graduado (idgraduado, idusuario) values (1, 3);
 
-insert into processo_seletivo (idprocesso, curso, data_inicio, data_fim, idcoordenador) values (1, "TI", "2016-10-20", "2016-12-31", 1);
+insert into processo_seletivo (idprocesso, curso, data_inicio, data_fim, idcoordenador, finalizado) values (1, "TI", "2016-10-20", "2016-12-31", 1, 0);
 
 insert into situacao (idsituacao, nome) values (1, "aprovado"), (2, "em suplência"), (3, "não aprovado");
