@@ -34,4 +34,8 @@ public class NoticiaDAO {
 		Query q = em.createQuery(qs);
 		return (List<Noticia>) q.getResultList();
 	}
+
+	public Noticia buscarNoticia(int idnoticia) {
+		return (Noticia) em.find(Noticia.class, idnoticia);
+	}
 }

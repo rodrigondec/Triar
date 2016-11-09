@@ -2,19 +2,21 @@ package controller;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
 
-import dao.NoticiaDAO;
 import model.Noticia;
+import service.NoticiasService;
 
 @ManagedBean
 @RequestScoped
 public class NoticiaMB {
 	private Noticia noticia;
-	@Inject 
-	private NoticiaDAO noticiaDAO;
+
+	@EJB
+	NoticiasService noticiasService;
 	
 	private List<Noticia> noticias;
 
@@ -39,7 +41,7 @@ public class NoticiaMB {
 	}
 	
 	public String cadastrar(){
-		noticiaDAO.salvar(noticia);
+		noticiasService.CadastrarNoticia(noticia);
 		
 		noticia = new Noticia();
 		
@@ -47,7 +49,7 @@ public class NoticiaMB {
 	}
 
 	public List<Noticia> getNoticias() {
-		setNoticias(noticiaDAO.listarNoticias());
+		setNoticias(noticiasService.listarNoticias());
 		return noticias;
 	}
 
