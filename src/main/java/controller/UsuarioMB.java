@@ -3,22 +3,23 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 
-import dao.UsuarioDAO;
 import model.Mensagem;
 import model.Usuario;
+import service.UsuarioService;
 
 @ManagedBean
 @RequestScoped
 public class UsuarioMB {
 	private Usuario usuario;
-	@Inject 
-	private UsuarioDAO usuarioDAO;
+
+	@EJB
+	UsuarioService usuarioService;
 	
 	private List<Mensagem> mensagens;
 	
@@ -38,7 +39,7 @@ public class UsuarioMB {
 	}
 	
 	public List<Mensagem> getMensagens(){
-		setMensagens(usuarioDAO.listarMensagens(1));
+		setMensagens(usuarioService.listarMensagens(1));
 		return mensagens;
 	}
 	
@@ -65,17 +66,21 @@ public class UsuarioMB {
 	}
 
 	public String login(){
-		Usuario u = usuarioDAO.buscarEmail(usuario.getEmail());
-		if(u!= null){
-			if(u.getSenha().equals(usuario.getSenha())) {
-				usuario = u;
-				return getHome();
-			} else{
-				FacesMessage msg = new FacesMessage("Email e/ou senha incorretos");
-				msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-				FacesContext.getCurrentInstance().addMessage("", msg);
-			}
-		} else{
+
+		int res = usuarioService.login(usuario.getEmail(), usuario.getSenha());
+		
+		if(res >= 1){
+			Usuario u = usuarioService.getUsuario(res);
+			
+			request.getSession().setAttribute("usuario", u);
+
+		} 
+		else if(res == 0){
+			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
+			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+			FacesContext.getCurrentInstance().addMessage("", msg);
+		}
+		else{
 			FacesMessage msg = new FacesMessage("Usuario nao encontrado");
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);

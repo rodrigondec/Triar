@@ -1,11 +1,14 @@
 package service;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
 import dao.UsuarioDAO;
+import model.Mensagem;
 import model.Usuario;
 
 @Stateless
@@ -33,6 +36,11 @@ public class UsuarioService {
 		if (u != null){
 			return u;
 		}
+		return null;
+	}
+
+	public List<Mensagem> listarMensagens(int i) {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }
