@@ -14,8 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.Usuario;
 
-@WebFilter("/interna/*")
-public class LoginFilter implements Filter {
+@WebFilter("/interna/administrador/*")
+public class AdministradorFilter implements Filter {
 
 	public void destroy(){
         // TODO Auto-generated method stub
@@ -29,9 +29,16 @@ public class LoginFilter implements Filter {
     	 
     	 // Recuperacao de atributos armazenados em sessao
     	 Usuario u = (Usuario) req.getSession().getAttribute("usuario");
-    	 if (u == null) {								// Usuario nao autorizado
-    		 res.sendRedirect("/Triar/login.jsf?l");	// Redirecionamento para login
-    	 } else {
+    	 if(u == null) {								// Usuario nao autorizado
+    		 res.sendRedirect("/Triar/login.jsf");	// Redirecionamento para login
+    	 }
+    	 else if(u.getNome_permissao() == "coordenador"){
+    		 res.sendRedirect("/Triar/interna/coordenador/index.jsf");	// Redirecionamento para index
+    	 }
+    	 else if(u.getNome_permissao() == "graduado"){
+    		 res.sendRedirect("/Triar/interna/graduado/index.jsf");	// Redirecionamento para index
+    	 }
+    	 else {
     		 chain.doFilter(req, res);					// Requisicao avanca
     	 }
      }
