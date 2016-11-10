@@ -72,7 +72,7 @@ public class UsuarioMB {
 		if(res >= 1){
 			Usuario u = usuarioService.getUsuario(res);
 			
-			request.getSession().setAttribute("usuario", u);
+//			request.getSession().setAttribute("usuario", u);
 
 		} 
 		else if(res == 0){
@@ -93,7 +93,7 @@ public class UsuarioMB {
 	}
 
 	public List<Usuario> getUsuarios(){
-		setUsuarios(usuarioDAO.listarUsuarios());
+		setUsuarios(usuarioService.listarUsuarios());
 		return usuarios;
 	}	
 	
@@ -106,7 +106,7 @@ public class UsuarioMB {
 	}
 	
 	public String cadastrar(){
-		usuarioDAO.salvar(usuario);
+		usuarioService.cadastrarUsuario(usuario);
 		
 		usuario = new Usuario();
 		

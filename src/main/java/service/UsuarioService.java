@@ -43,4 +43,12 @@ public class UsuarioService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public void cadastrarUsuario(Usuario usuario) {
+		usuarioDAO.salvar(usuario);
+	}
+
+	public List<Usuario> listarUsuarios() {
+		return usuarioDAO.listarUsuarios();
+	}
 }
