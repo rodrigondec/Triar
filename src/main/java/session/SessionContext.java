@@ -2,6 +2,8 @@ package session;
 
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+
+import model.Usuario;
  
 public class SessionContext {
     
@@ -39,5 +41,12 @@ public class SessionContext {
     public void setAttribute(String nome, Object valor){
        currentExternalContext().getSessionMap().put(nome, valor);
     }
-    
+
+    public Usuario getUsuarioLogado(){
+        return (Usuario) getAttribute("usuario");
+   }
+   
+   public void setUsuarioLogado(Usuario usuario){
+        setAttribute("usuario", usuario);
+   }
 }
