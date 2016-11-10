@@ -20,4 +20,12 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.jsf</url-pattern>
 	</servlet-mapping>
+	
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+	
+	<listener>
+		<listener-class>session.SessionListener</listener-class>
+	</listener>
 </web-app>
