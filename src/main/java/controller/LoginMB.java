@@ -31,9 +31,18 @@ public class LoginMB{
 		
 		if(res >= 1){
 			Usuario u = usuarioService.getUsuario(res);
-			SessionContext.getInstance().setAttribute("usuarioLogado", u);
-//			request.getSession().setAttribute("usuario", u);
 
+			SessionContext.getInstance().setUsuarioLogado(u);
+			
+			if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao() == "administrador"){
+				return "/Triar/interna/administrador/index.jsf";
+			}
+			else if(u.getNome_permissao() == "coordenador"){
+				return "/Triar/interna/coordenador/index.jsf";
+			}
+			else if(u.getNome_permissao() == "graduado"){
+				return "/Triar/interna/graduado/index.jsf";
+			}			
 		} 
 		else if(res == 0){
 			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
