@@ -22,14 +22,14 @@
 						<h:messages />
 						<div class='form-group input-group'>
 							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-at" aria-hidden="true"></i></span>
-							<h:inputText class='form-control' value="#{usuarioMB.usuario.email}" a:placeholder="Email" required="true" requiredMessage="Login obrigatório" />
+							<h:inputText class='form-control' value="#{loginMB.email}" a:placeholder="Email" required="true" requiredMessage="Login obrigatório" />
 						</div>
 						<div class='form-group input-group'>
 							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<h:inputSecret class='form-control' value="#{usuarioMB.usuario.senha}" a:placeholder="Senha" required="true" requiredMessage="Senha obrigatória" />
+							<h:inputSecret class='form-control' value="#{loginMB.senha}" a:placeholder="Senha" required="true" requiredMessage="Senha obrigatória" />
 						</div>
 						<div style="text-align: center">
-							<h:commandButton action="#{usuarioMB.login}" value="Login" class="btn btn-default" />
+							<h:commandButton action="#{loginMB.doLogin}" value="Login" class="btn btn-default" />
 						</div>
 					</h:form>
 	  			</div>
