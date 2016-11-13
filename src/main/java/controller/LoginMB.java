@@ -1,5 +1,7 @@
 package controller;
 
+import java.io.IOException;
+
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -26,7 +28,7 @@ public class LoginMB{
        return (Usuario) SessionContext.getInstance().getUsuarioLogado();
     }
  
-    public String doLogin() {
+    public void doLogin() {
     	int res = usuarioService.login(email, senha);
 		
 		if(res >= 1){
@@ -35,13 +37,25 @@ public class LoginMB{
 			SessionContext.getInstance().setUsuarioLogado(u);
 			
 			if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("administrador")){
-				return "/Triar/interna/administrador/index.jsf";
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("/Triar/interna/administrador/index.jsf");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 			else if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("coordenador")){
-				return "/Triar/interna/coordenador/index.jsf";
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("/Triar/interna/coordenador/index.jsf");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 			else if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("graduado")){
-				return "/Triar/interna/graduado/index.jsf";
+				try {
+					FacesContext.getCurrentInstance().getExternalContext().redirect("/Triar/interna/graduado/index.jsf");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}			
 		} 
 		else if(res == 0){
@@ -54,12 +68,15 @@ public class LoginMB{
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
 		}
-		return null;
     }
  
-    public String doLogout() {
+    public void doLogout() {
        SessionContext.getInstance().encerrarSessao();
-       return "/Triar/index.jsf";
+       try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("/Triar/login.jsf");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
  
     public String getSenha() {
