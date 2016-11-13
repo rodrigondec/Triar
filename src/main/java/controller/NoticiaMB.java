@@ -5,10 +5,9 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
 
 import model.Noticia;
-import service.NoticiasService;
+import service.NoticiaService;
 
 @ManagedBean
 @RequestScoped
@@ -16,7 +15,7 @@ public class NoticiaMB {
 	private Noticia noticia;
 
 	@EJB
-	NoticiasService noticiasService;
+	NoticiaService noticiaService;
 	
 	private List<Noticia> noticias;
 
@@ -41,7 +40,7 @@ public class NoticiaMB {
 	}
 	
 	public String cadastrar(){
-		noticiasService.CadastrarNoticia(noticia);
+		noticiaService.CadastrarNoticia(noticia);
 		
 		noticia = new Noticia();
 		
@@ -49,7 +48,7 @@ public class NoticiaMB {
 	}
 
 	public List<Noticia> getNoticias() {
-		setNoticias(noticiasService.listarNoticias());
+		setNoticias(noticiaService.listarNoticias());
 		return noticias;
 	}
 

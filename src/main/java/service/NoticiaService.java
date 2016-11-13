@@ -11,7 +11,7 @@ import dao.NoticiaDAO;
 import model.Noticia;
 
 @Stateful
-public class NoticiasService {
+public class NoticiaService {
 	@Inject
 	private NoticiaDAO noticiaDAO;
 	
