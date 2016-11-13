@@ -1,7 +1,5 @@
 package controller;
 
-import java.io.IOException;
-
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -28,7 +26,7 @@ public class LoginMB{
        return (Usuario) SessionContext.getInstance().getUsuarioLogado();
     }
  
-    public void doLogin() {
+    public String doLogin() {
     	int res = usuarioService.login(email, senha);
 		
 		if(res >= 1){
@@ -37,25 +35,13 @@ public class LoginMB{
 			SessionContext.getInstance().setUsuarioLogado(u);
 			
 			if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("administrador")){
-				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("/Triar/interna/administrador/index.jsf");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				return "/interna/administrador/index.jsf";
 			}
 			else if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("coordenador")){
-				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("/Triar/interna/coordenador/index.jsf");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				return "/interna/coordenador/index.jsf";
 			}
 			else if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("graduado")){
-				try {
-					FacesContext.getCurrentInstance().getExternalContext().redirect("/Triar/interna/graduado/index.jsf");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				return "/interna/graduado/index.jsf";
 			}			
 		} 
 		else if(res == 0){
@@ -68,15 +54,12 @@ public class LoginMB{
 			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
 			FacesContext.getCurrentInstance().addMessage("", msg);
 		}
+		return null;
     }
  
-    public void doLogout() {
+    public String doLogout() {
        SessionContext.getInstance().encerrarSessao();
-       try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("/Triar/login.jsf");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+       return "/index.jsf";
     }
  
     public String getSenha() {
