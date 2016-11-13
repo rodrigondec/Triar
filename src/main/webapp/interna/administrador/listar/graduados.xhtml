@@ -16,10 +16,10 @@
 	
 	<ui:define name="conteudo">
 		<div class="col-lg-3 col-centered table-responsive container">
-			<h:dataTable value="#{situacaoMB.situacoes}" var="s" class="table table-striped table-bordered table-hover table-condensed">
+			<h:dataTable value="#{graduadoMB.graduados}" var="g" class="table table-striped table-bordered table-hover table-condensed">
 				<h:column>
 					<f:facet name="header">Nome</f:facet>
-					<h:outputText value="#{s.nome}" />
+					<h:outputText value="#{g.usuario.nome}" />
 				</h:column>
 			</h:dataTable>
 		</div>

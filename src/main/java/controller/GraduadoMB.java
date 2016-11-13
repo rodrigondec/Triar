@@ -2,22 +2,22 @@ package controller;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
 
-import dao.GraduadoDAO;
 import model.Graduado;
-import model.ProcessoSeletivo;
+import service.GraduadoService;
 
 @ManagedBean
 @RequestScoped
 public class GraduadoMB {
 	private Graduado graduado;
-	@Inject 
-	private GraduadoDAO graduadoDAO;
 	
-	private List<ProcessoSeletivo> processos;
+	@EJB
+	private GraduadoService graduadoService;
+	
+	private List<Graduado> graduados;
 
 	public GraduadoMB(){
 		setGraduado(new Graduado());
@@ -31,13 +31,13 @@ public class GraduadoMB {
 		this.graduado = graduado;
 	}
 
-	public List<ProcessoSeletivo> getProcessos() {
-		setProcessos(graduadoDAO.listarProcessos(1));
-		return processos;
+	public List<Graduado> getGraduados() {
+		setGraduados(graduadoService.listarGraduados());
+		return graduados;
 	}
 
-	public void setProcessos(List<ProcessoSeletivo> processos) {
-		this.processos = processos;
+	public void setGraduados(List<Graduado> graduados) {
+		this.graduados = graduados;
 	}
 	
 	public String geturlCadastrar(){
@@ -49,7 +49,7 @@ public class GraduadoMB {
 	}
 	
 	public String cadastrar(){
-		graduadoDAO.salvar(graduado);
+		graduadoService.cadastrarGraduado(graduado);
 		
 		graduado = new Graduado();
 		
