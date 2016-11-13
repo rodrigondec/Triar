@@ -41,6 +41,18 @@ public class SessionContext {
     public void setAttribute(String nome, Object valor){
        currentExternalContext().getSessionMap().put(nome, valor);
     }
+    
+    public boolean isUsuarioLogado(){
+    	try{
+    		Usuario u = (Usuario) getAttribute("usuario");
+    		if(u != null){
+    			return true;
+    		}
+    	} catch(NullPointerException ex) {
+		 
+    	}
+		return false;
+    }
 
     public Usuario getUsuarioLogado(){
         return (Usuario) getAttribute("usuario");
