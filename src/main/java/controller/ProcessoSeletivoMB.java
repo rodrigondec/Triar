@@ -2,28 +2,25 @@ package controller;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
 
-import dao.ProcessoSeletivoDAO;
-import dao.VagaDAO;
 import model.ProcessoSeletivo;
 import model.Vaga;
+import service.ProcessoSeletivoService;
 
 @ManagedBean
 @RequestScoped
 public class ProcessoSeletivoMB {
 	private ProcessoSeletivo processo;
-	@Inject 
-	private ProcessoSeletivoDAO processoDAO;
+	
+	@EJB
+	private ProcessoSeletivoService processoService;
 	
 	private List<ProcessoSeletivo> processos;
 	
 	private Vaga vaga;
-	@SuppressWarnings("unused")
-	@Inject
-	private VagaDAO vagaDAO;
 
 	public ProcessoSeletivoMB(){
 		setVaga(new Vaga());
@@ -43,7 +40,7 @@ public class ProcessoSeletivoMB {
 	}
 	
 	public List<ProcessoSeletivo> getProcessos(){
-		setProcessos(processoDAO.listarProcessos());
+		setProcessos(processoService.listarProcessos());
 		return processos;
 	}
 	
@@ -64,8 +61,8 @@ public class ProcessoSeletivoMB {
 	}
 	
 	public String cadastrar(){
-		//FALTA VAGA
-		processoDAO.salvar(processo);
+		// TODO Cadastrar vagas
+		processoService.cadastrarProcessoSeletivo(processo);
 		
 		processo = new ProcessoSeletivo();
 		
