@@ -30,7 +30,7 @@ public class LoginFilter implements Filter {
     	 // Recuperacao de atributos armazenados em sessao
     	 Usuario u = (Usuario) req.getSession().getAttribute("usuario");
     	 if (u == null) {								// Usuario nao autorizado
-    		 res.sendRedirect("/Triar/login.jsf?l");	// Redirecionamento para login
+    		 res.sendRedirect("/Triar/login.jsf?");	// Redirecionamento para login
     	 } else {
     		 chain.doFilter(req, res);					// Requisicao avanca
     	 }
