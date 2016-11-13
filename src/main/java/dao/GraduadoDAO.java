@@ -55,4 +55,11 @@ public class GraduadoDAO {
 			return null;
 		}
 	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Graduado> listarGraduados(){
+		String qs = "select g from Graduado g";
+		Query q = em.createQuery(qs);
+		return (List<Graduado>) q.getResultList();
+	}
 }

@@ -39,12 +39,11 @@ public class UsuarioService {
 		return null;
 	}
 
-	public List<Mensagem> listarMensagens(int i) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Mensagem> listarMensagens(int idusuario) {
+		return usuarioDAO.listarMensagens(idusuario);
 	}
 
-	public void cadastrarUsuario(Usuario usuario) {
+	public void cadastrarUsuario(Usuario usuario){
 		usuarioDAO.salvar(usuario);
 	}
 
