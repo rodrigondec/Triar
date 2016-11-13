@@ -12,6 +12,7 @@ import javax.faces.context.FacesContext;
 import model.Mensagem;
 import model.Usuario;
 import service.UsuarioService;
+import session.SessionContext;
 
 @ManagedBean
 @RequestScoped
@@ -44,48 +45,21 @@ public class UsuarioMB {
 	}
 	
 	public String getMenu(){
-		try{
-			return "menu_" + usuario.getNome_permissao() + ".xhtml";
-		 } catch(NullPointerException ex) {
-		 
-		 }
+		if(SessionContext.getInstance().isUsuarioLogado()){
+			return "menu_" + SessionContext.getInstance().getUsuarioLogado().getNome_permissao() + ".xhtml";
+		}
 		return "menu_externo.xhtml";
 	}
 	
 	public String getHome(){
-		try{
-			return "/interna/" + usuario.getNome_permissao() + "/index.jsf";
-		 } catch(NullPointerException ex) {
-		 
-		 }
+		if(SessionContext.getInstance().isUsuarioLogado()){
+			return "/interna/" + SessionContext.getInstance().getUsuarioLogado().getNome_permissao() + "/index.jsf";
+		}
 		return null;
 	}
 	
 	private void setMensagens(List<Mensagem> mensagens) {
 		this.mensagens = mensagens;
-	}
-
-	public String login(){
-
-		int res = usuarioService.login(usuario.getEmail(), usuario.getSenha());
-		
-		if(res >= 1){
-			Usuario u = usuarioService.getUsuario(res);
-			
-//			request.getSession().setAttribute("usuario", u);
-
-		} 
-		else if(res == 0){
-			FacesMessage msg = new FacesMessage("Usuario e/ou senha incorretos");
-			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-			FacesContext.getCurrentInstance().addMessage("", msg);
-		}
-		else{
-			FacesMessage msg = new FacesMessage("Usuario nao encontrado");
-			msg.setSeverity(FacesMessage.SEVERITY_ERROR);
-			FacesContext.getCurrentInstance().addMessage("", msg);
-		}
-		return null;
 	}
 	
 	public void setUsuarios(List<Usuario> usuarios) {
