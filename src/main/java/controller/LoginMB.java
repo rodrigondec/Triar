@@ -34,13 +34,13 @@ public class LoginMB{
 
 			SessionContext.getInstance().setUsuarioLogado(u);
 			
-			if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao() == "administrador"){
+			if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("administrador")){
 				return "/Triar/interna/administrador/index.jsf";
 			}
-			else if(u.getNome_permissao() == "coordenador"){
+			else if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("coordenador")){
 				return "/Triar/interna/coordenador/index.jsf";
 			}
-			else if(u.getNome_permissao() == "graduado"){
+			else if(SessionContext.getInstance().getUsuarioLogado().getNome_permissao().equals("graduado")){
 				return "/Triar/interna/graduado/index.jsf";
 			}			
 		} 

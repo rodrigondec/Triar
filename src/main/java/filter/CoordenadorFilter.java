@@ -32,10 +32,10 @@ public class CoordenadorFilter implements Filter {
     	 if (u == null) {								// Usuario nao autorizado
     		 res.sendRedirect("/Triar/login.jsf");	// Redirecionamento para login
     	 } 
-    	 else if(u.getNome_permissao() == "administrador"){
+    	 else if(u.getNome_permissao().equals("administrador")){
     		 res.sendRedirect("/Triar/interna/administrador/index.jsf");	// Redirecionamento para index
     	 }
-    	 else if(u.getNome_permissao() == "graduado"){
+    	 else if(u.getNome_permissao().equals("graduado")){
     		 res.sendRedirect("/Triar/interna/graduado/index.jsf");	// Redirecionamento para index
     	 }
     	 else {
