@@ -59,7 +59,7 @@ public class LoginMB{
  
     public String doLogout() {
        SessionContext.getInstance().encerrarSessao();
-       return "/Triar/index.jsf?faces-redirect=true";
+       return "/Triar/index.jsf";
     }
  
     public String getSenha() {
