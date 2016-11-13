@@ -54,4 +54,11 @@ public class CoordenadorDAO {
 			return null;
 		}
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Coordenador> listarCoordenadores() {
+		String qs = "select c from Coordenador c";
+		Query q = em.createQuery(qs);
+		return (List<Coordenador>) q.getResultList();
+	}
 }

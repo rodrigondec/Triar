@@ -3,43 +3,34 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
 
-import dao.CoordenadorDAO;
 import model.Coordenador;
-import model.ProcessoSeletivo;
+import service.CoordenadorService;
 
 @ManagedBean
 @RequestScoped
 public class CoordenadorMB {
 	private Coordenador coordenador;
-	@Inject 
-	private CoordenadorDAO coordenadorDAO;
 	
-	private List<ProcessoSeletivo> processos;
+	@EJB
+	private CoordenadorService coordenadorService;
+
+	private List<Coordenador> coordenadores;
 	
 	public CoordenadorMB(){
 		setCoordenador(new Coordenador());
-		setProcessos(new ArrayList<ProcessoSeletivo>());
+		setCoordenadores(new ArrayList<Coordenador>());
 	}
 
-	public Coordenador getCoordenador() {
+	public Coordenador getCoordenador(){
 		return coordenador;
 	}
 
-	public void setCoordenador(Coordenador coordenador) {
+	public void setCoordenador(Coordenador coordenador){
 		this.coordenador = coordenador;
-	}
-
-	public List<ProcessoSeletivo> getProcessos() {
-		setProcessos(coordenadorDAO.listarProcessos(1));
-		return processos;
-	}
-
-	public void setProcessos(List<ProcessoSeletivo> processos) {
-		this.processos = processos;
 	}
 	
 	public String validar(){
@@ -54,11 +45,20 @@ public class CoordenadorMB {
 		return "/interna/administrador/listar/coordenadores.jsf";
 	}
 	
+	public List<Coordenador> getCoordenadores(){
+		setCoordenadores(coordenadorService.listarCoordenadores());
+		return coordenadores;
+	}
+
+	public void setCoordenadores(List<Coordenador> coordenadores) {
+		this.coordenadores = coordenadores;
+	}
+	
 	public String cadastrar(){
-		coordenadorDAO.salvar(coordenador);
+		coordenadorService.cadastrarCoordenador(coordenador);
 		
 		coordenador = new Coordenador();
 		
 		return geturlListar();
-	}
+	}	
 }
