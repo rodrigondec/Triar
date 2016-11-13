@@ -2,20 +2,21 @@ package controller;
 
 import java.util.List;
 
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
 
-import dao.MensagemDAO;
 import model.Mensagem;
+import service.MensagemService;
 
 @ManagedBean
 @RequestScoped
 public class MensagemMB {
 	private Mensagem mensagem;
-	@Inject
-	private MensagemDAO mensagemDAO;
 	
+	@EJB
+	private MensagemService mensagemService;
+
 	private List<Mensagem> mensagens;
 
 	public Mensagem getMensagem() {
@@ -27,7 +28,7 @@ public class MensagemMB {
 	}
 
 	public List<Mensagem> getMensagens() {
-		setMensagens(mensagemDAO.listarMensagens());
+		setMensagens(mensagemService.listarMensagens());
 		return mensagens;
 	}
 
@@ -44,7 +45,7 @@ public class MensagemMB {
 	}
 	
 	public String cadastrar(){
-		mensagemDAO.salvar(mensagem);
+		mensagemService.cadastrarMensagem(mensagem);
 		
 		mensagem = new Mensagem();
 		
