@@ -1,7 +1,5 @@
 package controller;
 
-import java.util.List;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Inject;
@@ -17,8 +15,6 @@ public class InscricaoMB {
 	@Inject 
 	private InscricaoDAO inscricaoDAO;
 	
-	private List<Inscricao> inscricoes;
-	
 	private ProcessoSeletivo processo;
 
 	public InscricaoMB(){
@@ -31,15 +27,6 @@ public class InscricaoMB {
 
 	public void setInscricao(Inscricao inscricao) {
 		this.inscricao = inscricao;
-	}
-
-	public List<Inscricao> getInscricoes() {
-		setInscricoes(inscricaoDAO.listarInscricoes());
-		return inscricoes;
-	}
-
-	public void setInscricoes(List<Inscricao> inscricoes) {
-		this.inscricoes = inscricoes;
 	}
 	
 	public String geturlListar(){
