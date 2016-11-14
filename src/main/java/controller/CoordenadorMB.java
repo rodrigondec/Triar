@@ -8,12 +8,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import model.Coordenador;
+import model.ProcessoSeletivo;
 import service.CoordenadorService;
+import session.SessionContext;
 
 @ManagedBean
 @RequestScoped
 public class CoordenadorMB {
 	private Coordenador coordenador;
+	private List<ProcessoSeletivo> processos;
 	
 	@EJB
 	private CoordenadorService coordenadorService;
@@ -60,5 +63,14 @@ public class CoordenadorMB {
 		coordenador = new Coordenador();
 		
 		return geturlListar();
+	}
+
+	public List<ProcessoSeletivo> getProcessos() {
+		setProcessos(coordenadorService.listarProcessos(coordenadorService.getCoordenador(SessionContext.getInstance().getUsuarioLogado().getIdusuario()).getIdcoordenador()));
+		return processos;
+	}
+
+	public void setProcessos(List<ProcessoSeletivo> processos) {
+		this.processos = processos;
 	}	
 }
