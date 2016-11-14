@@ -14,6 +14,10 @@ public class CoordenadorService {
 	@Inject
 	private CoordenadorDAO coordenadorDAO;
 	
+	public Coordenador getCoordenador(int idusuario){
+		return coordenadorDAO.buscarCoordenador(idusuario);
+	}
+	
 	public List<Coordenador> listarCoordenadores(){
 		return coordenadorDAO.listarCoordenadores();
 	}
