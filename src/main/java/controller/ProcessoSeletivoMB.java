@@ -60,22 +60,39 @@ public class ProcessoSeletivoMB {
 		this.vaga = vaga;
 	}
 	
-	public String finalizar(){
-		return "/interna/coordenador/index.jsf";
+	public String geturlNotas(){
+		return "/interna/coordenador/registrar_notas.jsf";
 	}
 	
-	public String armazenar(){
-		processo.setCoordenador(coordenadorService.getCoordenador(SessionContext.getInstance().getUsuarioLogado().getIdusuario()));
-		SessionContext.getInstance().setAttribute("processo", processo);
-		return geturlVaga();
+	public String geturlFProcesso(){
+		return "/interna/coordenador/finalizar_processo.jsf";
 	}
 	
-	public String geturlProcesso(){
+	public String geturlRProcesso(){
 		return "/interna/coordenador/registrar_processo.jsf";
 	}
 	
 	public String geturlVaga(){
 		return "/interna/coordenador/registrar_vaga.jsf";
+	}
+	
+	public String Farmazenar(){
+		SessionContext.getInstance().setAttribute("processo", processo);
+		return geturlNotas();
+	}
+	
+	public String finalizar(){
+		processo = (ProcessoSeletivo) SessionContext.getInstance().getAttribute("processo");
+		
+		SessionContext.getInstance().removeAttribute("processo");
+		
+		return "/interna/coordenador/index.jsf";
+	}
+	
+	public String Rarmazenar(){
+		processo.setCoordenador(coordenadorService.getCoordenador(SessionContext.getInstance().getUsuarioLogado().getIdusuario()));
+		SessionContext.getInstance().setAttribute("processo", processo);
+		return geturlVaga();
 	}
 	
 	public String cadastrar(){
