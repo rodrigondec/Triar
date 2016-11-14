@@ -120,6 +120,27 @@ public class Usuario {
 		return permissao.getNome();
 	}
 	
+	public boolean isAdministrador(){
+		if(permissao.getNome().equals("administrador")){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean isCoordenador(){
+		if(permissao.getNome().equals("coordenador")){
+			return true;
+		}
+		return false;
+	}
+
+	public boolean isGraduado(){
+		if(permissao.getNome().equals("graduado")){
+			return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public boolean equals(Object o){
 		if(this == o){

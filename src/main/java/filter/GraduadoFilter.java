@@ -32,10 +32,10 @@ public class GraduadoFilter implements Filter {
     	 if (u == null) {								// Usuario nao autorizado
     		 res.sendRedirect("/Triar/login.jsf");	// Redirecionamento para login
     	 } 
-    	 else if(u.getNome_permissao().equals("administrador")){
+    	 else if(u.isAdministrador()){
     		 res.sendRedirect("/Triar/interna/administrador/index.jsf");	// Redirecionamento para index
     	 }
-    	 else if(u.getNome_permissao().equals("coordenador")){
+    	 else if(u.isCoordenador()){
     		 res.sendRedirect("/Triar/interna/coordenador/index.jsf");	// Redirecionamento para index
     	 }
     	 else {

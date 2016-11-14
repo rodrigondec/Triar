@@ -8,7 +8,6 @@ import javax.servlet.http.HttpSessionListener;
  
 public class SessionListener implements HttpSessionListener {
     
- 
     public void sessionCreated(HttpSessionEvent event) {        
          System.out.println("Sessão criada " + event.getSession().getId());
     }
@@ -17,5 +16,4 @@ public class SessionListener implements HttpSessionListener {
          String ultimoAcesso = (new SimpleDateFormat("dd/MM/yyyy HH:mm:ss")).format(new Date(event.getSession().getLastAccessedTime()));
          System.out.println("Sessão expirada "+event.getSession().getId()+". Ultimo Acesso = "+ultimoAcesso);
     }
- 
 }
