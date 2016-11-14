@@ -28,12 +28,6 @@
 						</div>
 						<div class="row">	
 							<div class='form-group input-group'>
-								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
-								<h:inputText class='form-control' value="#{processoSeletivoMB.vaga.sub_area}" a:placeholder="Sub-área" required="true" requiredMessage="Sub-área obrigatória" />
-							</div>
-						</div>
-						<div class="row">	
-							<div class='form-group input-group'>
 								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
 								<h:inputText class='form-control' a:type="date" value="#{processoSeletivoMB.processo.data_inicio}" a:placeholder="Data início" required="true" requiredMessage="data do início do processo seletivo obrigatória">
 									<f:convertDateTime pattern="yyyy-mm-dd" />
@@ -47,12 +41,6 @@
 						</div>
 						<div class="row">	
 							<div class='form-group input-group'>
-								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
-								<h:inputText class='form-control' value="#{processoSeletivoMB.vaga.quantidade}" a:placeholder="Quantidade de Vagas" required="true" requiredMessage="Quantidade de vagas obrigatório" />
-							</div>
-						</div>
-						<div class="row">	
-							<div class='form-group input-group'>
 								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
 								<h:inputText class='form-control' a:type="date" value="#{processoSeletivoMB.processo.data_fim}" a:placeholder="Data fim" required="true" requiredMessage="data de encerramento do processo seletivo obrigatória">
 									<f:convertDateTime pattern="yyyy-mm-dd" />
@@ -62,7 +50,7 @@
 					</div>
 				</div>
 				<div class="row" style="text-align: center">
-					<h:commandButton action="#{processoSeletivoMB.cadastrar}" value="cadastrar" class="btn btn-default" />
+					<h:commandButton action="#{processoSeletivoMB.armazenar}" value="prosseguir" class="btn btn-default" />
 				</div>
 			</h:form>
 		</div>
