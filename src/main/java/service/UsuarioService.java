@@ -42,6 +42,13 @@ public class UsuarioService {
 	public List<Mensagem> listarMensagens(int idusuario) {
 		return usuarioDAO.listarMensagens(idusuario);
 	}
+	
+	public boolean temNotificacao(int idusuario){
+		if(usuarioDAO.temNotificacao(idusuario)){
+			return true;
+		}
+		return false;
+	}
 
 	public void cadastrarUsuario(Usuario usuario){
 		usuarioDAO.salvar(usuario);

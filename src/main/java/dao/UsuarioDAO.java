@@ -8,8 +8,8 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import model.Usuario;
 import model.Mensagem;
+import model.Usuario;
 
 @Stateless
 public class UsuarioDAO {
@@ -54,12 +54,16 @@ public class UsuarioDAO {
 	}
 	
 	public boolean temNotificacao(int idusuario){
-		String qs = "select m from mensagem m where m.ativa = 1 and m.usuario.idusuario= :idusuario";
+		String qs = "select m from Mensagem m where m.ativa = 1 and m.usuario.idusuario= :idusuario";
 		Query q = em.createQuery(qs);
-		if(q.getResultList() != null){
-			return true;
+		q.setParameter("idusuario", idusuario);
+		try{
+			q.getSingleResult();
 		}
-		return false;
+		catch(Exception NoResultException){
+			return false;
+		}
+		return true;
 	}
 	
 	@SuppressWarnings("unchecked")
