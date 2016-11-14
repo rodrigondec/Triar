@@ -77,6 +77,13 @@ public class UsuarioMB {
 		return "/interna/administrador/listar/usuarios.jsf";
 	}
 	
+	public String getnotificacaoSimbolo(){
+		if(usuarioService.temNotificacao(SessionContext.getInstance().getUsuarioLogado().getIdusuario())){
+			return "fa-bell-o";
+		}
+		return "fa-bell-slash-o";
+	}
+	
 	public String cadastrar(){
 		usuarioService.cadastrarUsuario(usuario);
 		
