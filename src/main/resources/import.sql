@@ -16,4 +16,4 @@ insert into situacao (idsituacao, nome) values (1, "aprovado"), (2, "em suplênci
 
 insert into noticia (idnoticia, titulo, corpo) values (1, "ALERTA URGENTE", "Sistema criado!");
 
-insert into mensagem (idmensagem, titulo, corpo, ativa) values (1, "Uma mensagem", "Essa é uma mensagem", 1);
+insert into mensagem (idmensagem, titulo, corpo, ativa, idusuario) values (1, "Uma mensagem", "Essa é uma mensagem", 1, 1);

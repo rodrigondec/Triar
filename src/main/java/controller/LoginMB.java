@@ -49,7 +49,7 @@ public class LoginMB{
  
     public String doLogout() {
        SessionContext.getInstance().encerrarSessao();
-       return "/index.jsf";
+       return "/login.jsf";
     }
  
     public String getSenha() {
