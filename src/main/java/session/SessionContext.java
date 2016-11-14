@@ -42,6 +42,10 @@ public class SessionContext {
        currentExternalContext().getSessionMap().put(nome, valor);
     }
     
+    public void removeAttribute(String nome){
+    	currentExternalContext().getSessionMap().remove(nome);
+    }
+    
     public boolean isUsuarioLogado(){
     	try{
     		Usuario u = (Usuario) getAttribute("usuario");
