@@ -97,4 +97,12 @@ public class ProcessoSeletivo {
         }
 		return true;
 	}
+
+	public Coordenador getCoordenador() {
+		return coordenador;
+	}
+
+	public void setCoordenador(Coordenador coordenador) {
+		this.coordenador = coordenador;
+	}
 }
