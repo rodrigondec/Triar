@@ -60,6 +60,13 @@ public class ProcessoSeletivoMB {
 		return "/interna/coordenador/index.jsf";
 	}
 	
+	public String geturlProcesso(){
+		return "/interna/coordenador/registrar_processo.jsf";
+	}
+	
+	public String geturlVaga(){
+		return "/interna/coordenador/registrar_vaga.jsf";
+	}
 	public String cadastrar(){
 		// TODO Cadastrar vagas
 		processoService.cadastrarProcessoSeletivo(processo);
