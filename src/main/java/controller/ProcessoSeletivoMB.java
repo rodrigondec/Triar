@@ -8,19 +8,23 @@ import javax.faces.bean.RequestScoped;
 
 import model.ProcessoSeletivo;
 import model.Vaga;
+import service.CoordenadorService;
 import service.ProcessoSeletivoService;
+import session.SessionContext;
 
 @ManagedBean
 @RequestScoped
 public class ProcessoSeletivoMB {
 	private ProcessoSeletivo processo;
+	private Vaga vaga;
 	
 	@EJB
 	private ProcessoSeletivoService processoService;
 	
-	private List<ProcessoSeletivo> processos;
+	@EJB
+	private CoordenadorService coordenadorService;
 	
-	private Vaga vaga;
+	private List<ProcessoSeletivo> processos;
 
 	public ProcessoSeletivoMB(){
 		setVaga(new Vaga());
@@ -60,6 +64,12 @@ public class ProcessoSeletivoMB {
 		return "/interna/coordenador/index.jsf";
 	}
 	
+	public String armazenar(){
+		processo.setCoordenador(coordenadorService.getCoordenador(SessionContext.getInstance().getUsuarioLogado().getIdusuario()));
+		SessionContext.getInstance().setAttribute("processo", processo);
+		return geturlVaga();
+	}
+	
 	public String geturlProcesso(){
 		return "/interna/coordenador/registrar_processo.jsf";
 	}
@@ -67,11 +77,18 @@ public class ProcessoSeletivoMB {
 	public String geturlVaga(){
 		return "/interna/coordenador/registrar_vaga.jsf";
 	}
+	
 	public String cadastrar(){
-		// TODO Cadastrar vagas
-		processoService.cadastrarProcessoSeletivo(processo);
+		processo = (ProcessoSeletivo) SessionContext.getInstance().getAttribute("processo");
+		vaga.setProcesso(processo);
 		
+		processoService.cadastrarProcessoSeletivo(processo);
 		processo = new ProcessoSeletivo();
+		
+		processoService.cadastrarVaga(vaga);// TODO ajeitar erro
+		vaga = new Vaga();
+		
+		SessionContext.getInstance().removeAttribute("processo");
 		
 		return "/interna/coordenador/index.jsf";
 	}
