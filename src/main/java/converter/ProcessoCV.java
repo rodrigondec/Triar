@@ -13,7 +13,7 @@ import model.ProcessoSeletivo;
 
 @ManagedBean
 @RequestScoped
-@FacesConverter("UsuarioCV")
+@FacesConverter("ProcessoCV")
 public class ProcessoCV implements Converter{
 	@Inject
 	ProcessoSeletivoDAO processoDAO;

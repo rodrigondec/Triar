@@ -21,7 +21,7 @@ public class Situacao {
 	private String nome;
 	
 	@OneToMany
-	@JoinColumn(name="idinscricao")
+	@JoinColumn(name="idsituacao")
 	private List<Inscricao> inscricoes;
 	
 	public int getIdsituacao() {

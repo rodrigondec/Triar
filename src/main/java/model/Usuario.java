@@ -41,7 +41,7 @@ public class Usuario {
 	private Permissao permissao;
 	
 	@OneToMany
-	@JoinColumn(name="idmensagem")
+	@JoinColumn(name="idusuario")
 	private List<Mensagem> mensagens;
 	
 	public int getIdusuario() {

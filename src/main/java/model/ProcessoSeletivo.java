@@ -40,7 +40,7 @@ public class ProcessoSeletivo {
 	private Coordenador coordenador;
 	
 	@OneToMany
-	@JoinColumn(name="idvaga")
+	@JoinColumn(name="idprocesso")
 	private List<Vaga> vagas;
 	
 	public int getIdprocesso() {

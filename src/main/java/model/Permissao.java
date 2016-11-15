@@ -21,7 +21,7 @@ public class Permissao {
 	private String nome;
 	
 	@OneToMany
-	@JoinColumn(name="idusuario")
+	@JoinColumn(name="idpermissao")
 	private List<Usuario> usuarios;
 
 	public int getIdpermissao() {

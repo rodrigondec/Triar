@@ -40,7 +40,7 @@ public class NoticiaMB {
 	}
 	
 	public String cadastrar(){
-		noticiaService.CadastrarNoticia(noticia);
+		noticiaService.cadastrarNoticia(noticia);
 		
 		noticia = new Noticia();
 		

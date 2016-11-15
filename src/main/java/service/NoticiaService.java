@@ -20,12 +20,12 @@ public class NoticiaService {
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void CadastrarNoticia(Noticia noticia) {
+	public void cadastrarNoticia(Noticia noticia) {
 		noticiaDAO.salvar(noticia);
 	}
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
-	public void AtualizarNoticia(Noticia noticia) {
+	public void atualizarNoticia(Noticia noticia) {
 		Noticia n = noticiaDAO.buscarNoticia(noticia.getIdnoticia());
 		if(n != null){
 			noticiaDAO.atualizar(noticia);

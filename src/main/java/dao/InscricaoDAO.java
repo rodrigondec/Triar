@@ -34,4 +34,8 @@ public class InscricaoDAO {
 		Query q = em.createQuery(qs);
 		return (List<Inscricao>) q.getResultList();
 	}
+
+	public Inscricao buscarInscricao(int idinscricao) {
+		return em.find(Inscricao.class, idinscricao);
+	}
 }
