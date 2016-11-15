@@ -27,7 +27,7 @@ public class Vaga {
 	private ProcessoSeletivo processo;
 	
 	@OneToMany
-	@JoinColumn(name="idinscricao")
+	@JoinColumn(name="idvaga")
 	private List<Inscricao> inscricoes;
 	
 	public int getIdvaga(){
@@ -64,5 +64,16 @@ public class Vaga {
 
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+//		if(this == o){
+//			return true;
+//		}
+//        if(o == null || getClass() != o.getClass()){
+//        	return false;
+//        }
+		return true;
 	}
 }
