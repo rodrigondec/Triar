@@ -15,26 +15,53 @@
 	</ui:define>
 	
 	<ui:define name="conteudo">	
-		<div class="col-lg-3 col-centered">
-			<div class="panel panel-default">
-				<div class="panel-body">
-	    			<h:form>
-						<h:messages />
-						<div class='form-group input-group'>
-							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-at" aria-hidden="true"></i></span>
-							<h:inputText class='form-control' value="#{loginMB.email}" a:placeholder="Email" required="true" requiredMessage="Login obrigatório" />
+		<div class="container">
+			<div class="row">
+				<div class="list-group col-lg-2">
+					<a id='nav_dados' href="#" class="list-group-item active" onclick='show_dados();'>Dados Pessoais</a>
+					<a id='nav_senha' href="#" class="list-group-item" onclick='show_senha();'>Senha</a>
+					<a id='nav_notificacao' href="#" class="list-group-item" onclick='show_notificacao();'>Notificação</a>
+				</div>
+				<div class="col-lg-6 col-lg-offset-1">
+					<div id="dados" class="row">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Dados Pessoais</h3>
+								</div>
+								<div class="panel-body">
+									Panel content
+								</div>
+							</div>
 						</div>
-						<div class='form-group input-group'>
-							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<h:inputSecret class='form-control' value="#{loginMB.senha}" a:placeholder="Senha" required="true" requiredMessage="Senha obrigatória" />
+					</div>
+					<div id="senha" class="row hidden">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Senha</h3>
+								</div>
+								<div class="panel-body">
+									Panel content
+								</div>
+							</div>
 						</div>
-						<div style="text-align: center">
-							<h:commandButton action="#{loginMB.doLogin}" value="Login" class="btn btn-default" />
+					</div>
+					<div id="notificacao" class="row hidden">
+						<div class="col-lg-12">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Notificações</h3>
+								</div>
+								<div class="panel-body">
+									Panel content
+								</div>
+							</div>
 						</div>
-					</h:form>
-	  			</div>
+					</div>
+				</div>
 			</div>
-		</div>		
+		</div>
 	</ui:define>
 	
 </ui:composition>
