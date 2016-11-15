@@ -79,7 +79,7 @@ public class UsuarioMB {
 	
 	public String getnotificacaoSimbolo(){
 		if(usuarioService.temNotificacao(SessionContext.getInstance().getUsuarioLogado().getIdusuario())){
-			return "fa-bell-o";
+			return "fa-bell";
 		}
 		return "fa-bell-slash-o";
 	}
