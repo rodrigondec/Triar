@@ -42,13 +42,8 @@
 						</div>
 					</h:column>
 					<h:column>
-						<a href="#">
-							Deletar
-							<i class="fa fa-times" aria-hidden="true"></i>
-						</a>
 						<h:form>
-							<h:inputText class='form-control hidden' value="#{m.idmensagem}"  />
-							<h:commandButton action="#{mensagemMB.deletar}" value="Deletar" class="btn btn-danger" />
+							<h:commandLink action="#{mensagemMB.deletar(m)}" value="Deletar" />
 						</h:form>
 					</h:column>
 				</h:dataTable>
