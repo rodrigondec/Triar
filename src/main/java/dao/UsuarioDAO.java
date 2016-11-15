@@ -50,6 +50,7 @@ public class UsuarioDAO {
 	public List<Mensagem> listarMensagens(int idusuario) {
 		String qs = "select m from Mensagem m where m.usuario.idusuario= :idusuario";
 		Query q = em.createQuery(qs);
+		q.setParameter("idusuario", idusuario);
 		return (List<Mensagem>) q.getResultList();
 	}
 	

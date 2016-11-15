@@ -38,7 +38,7 @@ public class UsuarioMB {
 	}
 	
 	public List<Mensagem> getMensagens(){
-		setMensagens(usuarioService.listarMensagens(1));
+		setMensagens(usuarioService.listarMensagens(SessionContext.getInstance().getUsuarioLogado().getIdusuario()));
 		return mensagens;
 	}
 	
