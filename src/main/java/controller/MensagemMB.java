@@ -44,6 +44,15 @@ public class MensagemMB {
 		return "/interna/administrador/listar/mensagens.jsf";
 	}
 	
+	public void ler(Mensagem m){
+		m.setAtiva(false);
+		mensagemService.atualizarMensagem(m);
+	}
+	
+	public void deletar(Mensagem m){
+		mensagemService.deletarMensagem(m);
+	}
+	
 	public String cadastrar(){
 		mensagemService.cadastrarMensagem(mensagem);
 		

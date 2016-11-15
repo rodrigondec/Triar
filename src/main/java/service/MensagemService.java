@@ -11,13 +11,21 @@ import model.Mensagem;
 @Stateless
 public class MensagemService {
 	@Inject
-	private MensagemDAO MensagemDAO;
+	private MensagemDAO mensagemDAO;
 
 	public void cadastrarMensagem(Mensagem mensagem) {
-		MensagemDAO.salvar(mensagem);
+		mensagemDAO.salvar(mensagem);
 	}
 
 	public List<Mensagem> listarMensagens() {
-		return MensagemDAO.listarMensagens();
+		return mensagemDAO.listarMensagens();
+	}
+
+	public void atualizarMensagem(Mensagem m) {
+		mensagemDAO.atualizar(m);
+	}
+
+	public void deletarMensagem(Mensagem m) {
+		mensagemDAO.remover(m);
 	}
 }
