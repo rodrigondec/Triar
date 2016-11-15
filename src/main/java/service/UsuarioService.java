@@ -57,4 +57,8 @@ public class UsuarioService {
 	public List<Usuario> listarUsuarios() {
 		return usuarioDAO.listarUsuarios();
 	}
+
+	public void atualizarUsuario(Usuario u) {
+		usuarioDAO.atualizar(u);
+	}
 }

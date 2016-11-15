@@ -30,7 +30,44 @@
 									<h3 class="panel-title">Dados Pessoais</h3>
 								</div>
 								<div class="panel-body">
-									Panel content
+									<h:form>
+										<div class="row">
+											<div class="col-lg-12">
+												<div class='form-group input-group'>
+													<span class="input-group-addon" id="basic-addon1"><i class="fa fa-user-o" aria-hidden="true"></i></span>
+													<h:inputText class='form-control' value="#{configuracaoMB.usuario.nome}" a:placeholder="Nome" required="true" requiredMessage="nome obrigatório" />
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-6">
+												<div class='form-group input-group'>
+													<span class="input-group-addon" id="basic-addon1"><i class="fa fa-id-card-o" aria-hidden="true"></i></span>
+													<h:inputText class='form-control' value="#{configuracaoMB.usuario.cpf}" a:placeholder="CPF" required="true" requiredMessage="CPF obrigatório" />
+												</div>
+											</div>
+											<div class="col-lg-6">
+												DATA
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-6">
+												<div class='form-group input-group'>
+													<span class="input-group-addon" id="basic-addon1"><i class="fa fa-at" aria-hidden="true"></i></span>
+													<h:inputText class='form-control' value="#{configuracaoMB.usuario.email}" a:placeholder="Email" required="true" requiredMessage="email obrigatório" />
+												</div>
+											</div>
+											<div class="col-lg-6">
+												<div class='form-group input-group'>
+													<span class="input-group-addon" id="basic-addon1"><i class="fa fa-phone" aria-hidden="true"></i></span>
+													<h:inputText class='form-control' value="#{configuracaoMB.usuario.telefone}" a:placeholder="Telefone" required="true" requiredMessage="telefone obrigatório" />
+												</div>
+											</div>
+										</div>										
+										<div style="text-align: center">
+											<h:commandButton action="#{configuracaoMB.atualizarUsuario}" value="Alterar" class="btn btn-default" />
+										</div>
+									</h:form>
 								</div>
 							</div>
 						</div>
@@ -42,7 +79,19 @@
 									<h3 class="panel-title">Senha</h3>
 								</div>
 								<div class="panel-body">
-									Panel content
+									<h:form>
+										<div class='form-group input-group'>
+											<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
+											<h:inputSecret class='form-control' value="#{configuracaoMB.senha1}" a:placeholder="Senha" required="true" requiredMessage="Senha obrigatória" />
+										</div>
+										<div class='form-group input-group'>
+											<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
+											<h:inputSecret class='form-control' value="#{configuracaoMB.senha2}" a:placeholder="Senha" required="true" requiredMessage="Senha obrigatória" />
+										</div>
+										<div style="text-align: center">
+											<h:commandButton action="#{configuracaoMB.alterarSenha}" value="Alterar" class="btn btn-default" />
+										</div>
+									</h:form>
 								</div>
 							</div>
 						</div>
