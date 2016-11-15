@@ -10,7 +10,7 @@
 	</ui:define>
 
 	<ui:define name="header">
-		<h2>Selecionar Processo</h2>
+		<h2>Selecionar Vaga</h2>
 		<hr />
 	</ui:define>
 	
@@ -19,13 +19,13 @@
 			<h:form>
 				<h:messages />
 				<div class='form-group input-group'>
-					<span class="input-group-addon" id="basic-addon1">Processo</span>
-					<h:selectOneMenu class='form-control' converter="#{processoCV}" value="#{inscricaoMB.processo}" required="true" requiredMessage="processo seletivo obrigatório">
-					    <f:selectItems value="#{processoSeletivoMB.processos}" var="p" itemValue="#{p}" itemLabel="#{p.curso} | #{p.data_inicio}" />
+					<span class="input-group-addon" id="basic-addon1">Vaga</span>
+					<h:selectOneMenu class='form-control' converter="#{vagaCV}" value="#{inscricaoMB.vaga}" required="true" requiredMessage="processo seletivo obrigatório">
+					    <f:selectItems value="#{inscricaoMB.vagas}" var="v" itemValue="#{v}" itemLabel="#{v.sub_area}" />
 					</h:selectOneMenu>
 				</div>
 				<div style="text-align: center">
-					<h:commandButton action="#{inscricaoMB.armazenar}" value="selecionar" class="btn btn-default" />
+					<h:commandButton action="#{inscricaoMB.cadastrar}" value="selecionar" class="btn btn-default" />
 				</div>
 			</h:form>
 		</div>
