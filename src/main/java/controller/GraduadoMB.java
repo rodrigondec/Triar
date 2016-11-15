@@ -7,12 +7,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import model.Graduado;
+import model.ProcessoSeletivo;
 import service.GraduadoService;
+import session.SessionContext;
 
 @ManagedBean
 @RequestScoped
 public class GraduadoMB {
 	private Graduado graduado;
+	private List<ProcessoSeletivo> processos;
 	
 	@EJB
 	private GraduadoService graduadoService;
@@ -54,5 +57,14 @@ public class GraduadoMB {
 		graduado = new Graduado();
 		
 		return geturlListar();
+	}
+
+	public List<ProcessoSeletivo> getProcessos() {
+		setProcessos(graduadoService.listarProcessos(graduadoService.getGraduado(SessionContext.getInstance().getUsuarioLogado().getIdusuario()).getIdgraduado()));
+		return processos;
+	}
+
+	public void setProcessos(List<ProcessoSeletivo> processos) {
+		this.processos = processos;
 	}
 }
