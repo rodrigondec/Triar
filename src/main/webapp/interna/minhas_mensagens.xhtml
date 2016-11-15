@@ -31,7 +31,11 @@
 							    <!-- Modal content-->
 							    <div class="modal-content">
 									<div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal">x</button>
+										<button type="button" class="close" data-dismiss="modal">
+											<h:form>
+												<h:commandLink action="#{mensagemMB.ler(m)}" value="x" />
+											</h:form>
+										</button>
 										<h4 class="modal-title"><h:outputText value="#{m.titulo}" /></h4>
 									</div>
 									<div class="modal-body">
