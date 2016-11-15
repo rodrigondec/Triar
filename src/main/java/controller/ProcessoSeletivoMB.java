@@ -102,7 +102,7 @@ public class ProcessoSeletivoMB {
 		processoService.cadastrarProcessoSeletivo(processo);
 		processo = new ProcessoSeletivo();
 		
-		processoService.cadastrarVaga(vaga);// TODO ajeitar erro
+		processoService.cadastrarVaga(vaga);
 		vaga = new Vaga();
 		
 		SessionContext.getInstance().removeAttribute("processo");
