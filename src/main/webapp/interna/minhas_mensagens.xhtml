@@ -15,24 +15,43 @@
 	</ui:define>
 	
 	<ui:define name="conteudo">	
-		<div class="col-lg-3 col-centered">
-			<div class="panel panel-default">
-				<div class="panel-body">
-	    			<h:form>
-						<h:messages />
-						<div class='form-group input-group'>
-							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-at" aria-hidden="true"></i></span>
-							<h:inputText class='form-control' value="#{loginMB.email}" a:placeholder="Email" required="true" requiredMessage="Login obrigatório" />
+		<div class="col-lg-4 col-lg-offset-4">
+			<div class="panel panel-default">				
+				<h:dataTable value="#{usuarioMB.mensagens}" var="m" class="table">
+					<h:column>
+						<f:facet name="header">Título</f:facet>
+						<h:outputText value="#{m.titulo}" />
+					</h:column>
+					<h:column>
+						<a href="#" data-toggle="modal"  data-target="#myModal#{m.idmensagem}">
+							Ler
+						</a>
+						<div id="myModal#{m.idmensagem}" class="modal fade" role="dialog">
+					  		<div class="modal-dialog modal-sm">
+							    <!-- Modal content-->
+							    <div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal">x</button>
+										<h4 class="modal-title"><h:outputText value="#{m.titulo}" /></h4>
+									</div>
+									<div class="modal-body">
+										<h:outputText value="#{m.corpo}" />
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class='form-group input-group'>
-							<span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i></span>
-							<h:inputSecret class='form-control' value="#{loginMB.senha}" a:placeholder="Senha" required="true" requiredMessage="Senha obrigatória" />
-						</div>
-						<div style="text-align: center">
-							<h:commandButton action="#{loginMB.doLogin}" value="Login" class="btn btn-default" />
-						</div>
-					</h:form>
-	  			</div>
+					</h:column>
+					<h:column>
+						<a href="#">
+							Deletar
+							<i class="fa fa-times" aria-hidden="true"></i>
+						</a>
+						<h:form>
+							<h:inputText class='form-control hidden' value="#{m.idmensagem}"  />
+							<h:commandButton action="#{mensagemMB.deletar}" value="Deletar" class="btn btn-danger" />
+						</h:form>
+					</h:column>
+				</h:dataTable>
 			</div>
 		</div>		
 	</ui:define>
