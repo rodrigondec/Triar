@@ -12,6 +12,8 @@ insert into graduado (idgraduado, idusuario) values (1, 3);
 
 insert into processo_seletivo (idprocesso, curso, data_inicio, data_fim, idcoordenador, finalizado) values (1, "TI", "2016-10-20", "2016-12-31", 1, 0);
 
+insert into vaga (idvaga, sub_area, quantidade, idprocesso) values (1, "Redes", 2, 1), (2, "Web", 3, 1);
+
 insert into situacao (idsituacao, nome) values (1, "aprovado"), (2, "em suplência"), (3, "não aprovado");
 
 insert into noticia (idnoticia, titulo, corpo) values (1, "ALERTA URGENTE", "Sistema criado!");
