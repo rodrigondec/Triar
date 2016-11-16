@@ -41,19 +41,6 @@ public class GraduadoDAO {
 			return null;
 		}
 	}
-	
-	public Graduado buscarGraduadoPorInscricao(int idinscricao){
-		String qs= "select g from Graduado g where g.inscricao.idinscricao= :idinscricao";
-		Query q = em.createQuery(qs);
-		q.setParameter("idinscricao", idinscricao);
-		
-		try{
-			return (Graduado) q.getSingleResult();
-		} catch(NoResultException e) {
-			return null;
-		}
-	}
-	
 
 	@SuppressWarnings("unchecked")
 	public List<ProcessoSeletivo> listarProcessos(int idgraduado){
