@@ -8,7 +8,6 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
-import dao.GraduadoDAO;
 import dao.InscricaoDAO;
 import dao.VagaDAO;
 import model.Graduado;
@@ -23,9 +22,6 @@ public class InscricaoService {
 	
 	@Inject
 	private VagaDAO vagaDAO;
-	
-	@Inject
-	private GraduadoDAO graduadoDAO;
 	
 	public List<Inscricao> listarInscricoes() {
 		return inscricaoDAO.listarInscricoes();
@@ -65,7 +61,7 @@ public class InscricaoService {
 			 inscricoes.addAll(inscricaoDAO.listarInscricoesPorVaga(vaga.getIdvaga()));
 		}
 		for(Inscricao inscricao: inscricoes){
-			graduados.add(graduadoDAO.buscarGraduadoPorInscricao(inscricao.getIdinscricao()));
+			graduados.add(inscricao.getGraduado());
 		}
 		return graduados;
 	}
