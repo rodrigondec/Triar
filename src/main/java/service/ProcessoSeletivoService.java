@@ -29,4 +29,8 @@ public class ProcessoSeletivoService {
 	public List<ProcessoSeletivo> listarProcessos() {
 		return processoDAO.listarProcessos();
 	}
+
+	public void atualizarProcesso(ProcessoSeletivo processo) {
+		processoDAO.atualizar(processo);
+	}
 }
