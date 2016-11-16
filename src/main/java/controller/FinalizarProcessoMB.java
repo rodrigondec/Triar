@@ -5,7 +5,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 import model.Graduado;
 import model.ProcessoSeletivo;
@@ -15,7 +15,7 @@ import service.ProcessoSeletivoService;
 import session.SessionContext;
 
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class FinalizarProcessoMB {
 	private ProcessoSeletivo processo;
 	
@@ -32,7 +32,7 @@ public class FinalizarProcessoMB {
 
 	public FinalizarProcessoMB(){
 		setProcesso(new ProcessoSeletivo());
-//		setGraduados(new ArrayList<Graduado>());
+		setGraduados(new ArrayList<Graduado>());
 		//inscricaoService.listarInscritos((ProcessoSeletivo) SessionContext.getInstance().getAttribute("processo"))
 	}
 
