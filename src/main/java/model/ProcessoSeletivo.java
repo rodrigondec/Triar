@@ -78,6 +78,14 @@ public class ProcessoSeletivo {
 	public void setData_fim(Date data_fim) {
 		this.data_fim = data_fim;
 	}
+	
+	public void setFinalizado(boolean status){
+		this.finalizado = status;
+	}
+	
+	public boolean getFinalizado(){
+		return finalizado;
+	}
 
 	public List<Vaga> getVagas() {
 		return vagas;
