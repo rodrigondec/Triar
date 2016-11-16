@@ -9,6 +9,7 @@ import javax.faces.bean.RequestScoped;
 import model.Graduado;
 import model.ProcessoSeletivo;
 import service.GraduadoService;
+import service.ProcessoSeletivoService;
 import session.SessionContext;
 
 @ManagedBean
@@ -19,6 +20,9 @@ public class GraduadoMB {
 	
 	@EJB
 	private GraduadoService graduadoService;
+	
+	@EJB 
+	private ProcessoSeletivoService processoService;
 	
 	private List<Graduado> graduados;
 
@@ -60,7 +64,7 @@ public class GraduadoMB {
 	}
 
 	public List<ProcessoSeletivo> getProcessos() {
-		setProcessos(graduadoService.listarProcessos(graduadoService.getGraduado(SessionContext.getInstance().getUsuarioLogado().getIdusuario()).getIdgraduado()));
+		setProcessos(processoService.listarProcessosPorGraduado(graduadoService.getGraduado(SessionContext.getInstance().getUsuarioLogado().getIdusuario())));
 		return processos;
 	}
 
