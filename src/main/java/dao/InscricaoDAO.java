@@ -46,4 +46,12 @@ public class InscricaoDAO {
 		q.setParameter("idvaga", idvaga);
 		return (List<Inscricao>) q.getResultList();
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Inscricao> listarInscricoesPorGraduado(int idgraduado) {
+		String qs = "select i from Inscricao i where i.graduado.idgraduado= :idgraduado";
+		Query q = em.createQuery(qs);
+		q.setParameter("idgraduado", idgraduado);
+		return (List<Inscricao>) q.getResultList();
+	}
 }
