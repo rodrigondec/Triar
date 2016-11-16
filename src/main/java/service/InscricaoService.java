@@ -52,7 +52,7 @@ public class InscricaoService {
 		}
 	}
 
-	public List<Graduado> listarInscritos(ProcessoSeletivo processo) {
+	public List<Inscricao> listarInscricoesPorProcesso(ProcessoSeletivo processo) {
 		List<Vaga> vagas = vagaDAO.listarVagas(processo.getIdprocesso());
 		List<Inscricao> inscricoes = new ArrayList<Inscricao>();
 		List<Graduado> graduados = new ArrayList<Graduado>();
@@ -63,6 +63,6 @@ public class InscricaoService {
 		for(Inscricao inscricao: inscricoes){
 			graduados.add(inscricao.getGraduado());
 		}
-		return graduados;
+		return inscricoes;
 	}
 }
