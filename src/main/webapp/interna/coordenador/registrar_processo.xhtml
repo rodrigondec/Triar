@@ -23,13 +23,13 @@
 						<div class="row">						
 							<div class='form-group input-group'>
 								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-info" aria-hidden="true"></i></span>
-								<h:inputText class='form-control' value="#{processoSeletivoMB.processo.curso}" a:placeholder="Curso" required="true" requiredMessage="Curso obrigatório" />
+								<h:inputText class='form-control' value="#{cadastrarProcessoMB.processo.curso}" a:placeholder="Curso" required="true" requiredMessage="Curso obrigatório" />
 							</div>
 						</div>
 						<div class="row">	
 							<div class='form-group input-group'>
 								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-								<h:inputText class='form-control' a:type="date" value="#{processoSeletivoMB.processo.data_inicio}" a:placeholder="Data início" required="true" requiredMessage="data do início do processo seletivo obrigatória">
+								<h:inputText class='form-control' a:type="date" value="#{cadastrarProcessoMB.processo.data_inicio}" a:placeholder="Data início" required="true" requiredMessage="data do início do processo seletivo obrigatória">
 									<f:convertDateTime pattern="yyyy-mm-dd" />
 								</h:inputText>
 							</div>
@@ -42,7 +42,7 @@
 						<div class="row">	
 							<div class='form-group input-group'>
 								<span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-								<h:inputText class='form-control' a:type="date" value="#{processoSeletivoMB.processo.data_fim}" a:placeholder="Data fim" required="true" requiredMessage="data de encerramento do processo seletivo obrigatória">
+								<h:inputText class='form-control' a:type="date" value="#{cadastrarProcessoMB.processo.data_fim}" a:placeholder="Data fim" required="true" requiredMessage="data de encerramento do processo seletivo obrigatória">
 									<f:convertDateTime pattern="yyyy-mm-dd" />
 								</h:inputText>
 							</div>
@@ -50,7 +50,7 @@
 					</div>
 				</div>
 				<div class="row" style="text-align: center">
-					<h:commandButton action="#{processoSeletivoMB.Rarmazenar}" value="prosseguir" class="btn btn-default" />
+					<h:commandButton action="#{cadastrarProcessoMB.armazenar}" value="prosseguir" class="btn btn-default" />
 				</div>
 			</h:form>
 		</div>
