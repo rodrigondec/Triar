@@ -38,4 +38,12 @@ public class InscricaoDAO {
 	public Inscricao buscarInscricao(int idinscricao) {
 		return em.find(Inscricao.class, idinscricao);
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<Inscricao> listarInscricoesPorVaga(int idvaga) {
+		String qs = "select i from Inscricao i where i.vaga.idvaga= :idvaga";
+		Query q = em.createQuery(qs);
+		q.setParameter("idvaga", idvaga);
+		return (List<Inscricao>) q.getResultList();
+	}
 }
