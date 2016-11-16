@@ -58,10 +58,11 @@ public class UsuarioDAO {
 		String qs = "select m from Mensagem m where m.ativa = 1 and m.usuario.idusuario= :idusuario";
 		Query q = em.createQuery(qs);
 		q.setParameter("idusuario", idusuario);
+		
 		try{
 			q.getSingleResult();
 		}
-		catch(Exception NoResultException){
+		catch(NoResultException e){
 			return false;
 		}
 		return true;

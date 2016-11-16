@@ -1,5 +1,6 @@
 package service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateful;
@@ -7,9 +8,12 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.inject.Inject;
 
+import dao.GraduadoDAO;
 import dao.InscricaoDAO;
 import dao.VagaDAO;
+import model.Graduado;
 import model.Inscricao;
+import model.ProcessoSeletivo;
 import model.Vaga;
 
 @Stateful
@@ -19,6 +23,9 @@ public class InscricaoService {
 	
 	@Inject
 	private VagaDAO vagaDAO;
+	
+	@Inject
+	private GraduadoDAO graduadoDAO;
 	
 	public List<Inscricao> listarInscricoes() {
 		return inscricaoDAO.listarInscricoes();
@@ -47,5 +54,19 @@ public class InscricaoService {
 		if (i != null) {
 			inscricaoDAO.remover(i);
 		}
+	}
+
+	public List<Graduado> listarInscritos(ProcessoSeletivo processo) {
+		List<Vaga> vagas = vagaDAO.listarVagas(processo.getIdprocesso());
+		List<Inscricao> inscricoes = new ArrayList<Inscricao>();
+		List<Graduado> graduados = new ArrayList<Graduado>();
+		
+		for(Vaga vaga: vagas){
+			 inscricoes.addAll(inscricaoDAO.listarInscricoesPorVaga(vaga.getIdvaga()));
+		}
+		for(Inscricao inscricao: inscricoes){
+			graduados.add(graduadoDAO.buscarGraduadoPorInscricao(inscricao.getIdinscricao()));
+		}
+		return graduados;
 	}
 }
