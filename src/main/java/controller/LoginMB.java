@@ -13,8 +13,6 @@ import session.SessionContext;
 @ManagedBean
 @SessionScoped
 public class LoginMB{ 
-//    @ManagedProperty(value = "#{userBO}")
-//    private UserBOImpl userBO;
 	
 	@EJB
 	private UsuarioService usuarioService;

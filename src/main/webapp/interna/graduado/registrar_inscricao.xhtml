@@ -20,12 +20,12 @@
 				<h:messages />
 				<div class='form-group input-group'>
 					<span class="input-group-addon" id="basic-addon1">Processo</span>
-					<h:selectOneMenu class='form-control' converter="#{processoCV}" value="#{inscricaoMB.processo}" required="true" requiredMessage="processo seletivo obrigatório">
+					<h:selectOneMenu class='form-control' converter="#{processoCV}" value="#{cadastrarInscricaoMB.processo}" required="true" requiredMessage="processo seletivo obrigatório">
 					    <f:selectItems value="#{processoSeletivoMB.processos}" var="p" itemValue="#{p}" itemLabel="#{p.curso} | #{p.data_inicio}" />
 					</h:selectOneMenu>
 				</div>
 				<div style="text-align: center">
-					<h:commandButton action="#{inscricaoMB.armazenar}" value="selecionar" class="btn btn-default" />
+					<h:commandButton action="#{cadastrarInscricaoMB.armazenar}" value="selecionar" class="btn btn-default" />
 				</div>
 			</h:form>
 		</div>

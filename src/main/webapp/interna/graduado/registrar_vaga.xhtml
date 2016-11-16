@@ -16,16 +16,20 @@
 	
 	<ui:define name="conteudo">	
 		<div class="col-lg-3 col-centered container">	
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="/Triar#{cadastrarInscricaoMB.urlProcesso}">Processo Seletivo</a></li>
+				<li class="breadcrumb-item active">Vaga</li>
+			</ol>
 			<h:form>
 				<h:messages />
 				<div class='form-group input-group'>
 					<span class="input-group-addon" id="basic-addon1">Vaga</span>
-					<h:selectOneMenu class='form-control' converter="#{vagaCV}" value="#{inscricaoMB.vaga}" required="true" requiredMessage="processo seletivo obrigatório">
-					    <f:selectItems value="#{inscricaoMB.vagas}" var="v" itemValue="#{v}" itemLabel="#{v.sub_area}" />
+					<h:selectOneMenu class='form-control' converter="#{vagaCV}" value="#{cadastrarInscricaoMB.vaga}" required="true" requiredMessage="processo seletivo obrigatório">
+					    <f:selectItems value="#{cadastrarInscricaoMB.vagas}" var="v" itemValue="#{v}" itemLabel="#{v.sub_area}" />
 					</h:selectOneMenu>
 				</div>
 				<div style="text-align: center">
-					<h:commandButton action="#{inscricaoMB.cadastrar}" value="selecionar" class="btn btn-default" />
+					<h:commandButton action="#{cadastrarInscricaoMB.cadastrar}" value="selecionar" class="btn btn-default" />
 				</div>
 			</h:form>
 		</div>
