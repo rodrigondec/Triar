@@ -7,7 +7,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-import model.Graduado;
+import model.Inscricao;
 import model.ProcessoSeletivo;
 import service.CoordenadorService;
 import service.InscricaoService;
@@ -28,11 +28,11 @@ public class FinalizarProcessoMB {
 	@EJB
 	private InscricaoService inscricaoService;
 	
-	private List<Graduado> graduados;
+	private List<Inscricao> inscricoes;
 
 	public FinalizarProcessoMB(){
 		setProcesso(new ProcessoSeletivo());
-		setGraduados(new ArrayList<Graduado>());
+		setInscricoes(new ArrayList<Inscricao>());
 		//inscricaoService.listarInscritos((ProcessoSeletivo) SessionContext.getInstance().getAttribute("processo"))
 	}
 
@@ -54,23 +54,26 @@ public class FinalizarProcessoMB {
 	
 	public String armazenar(){
 		SessionContext.getInstance().setAttribute("processo", processo);
-		setGraduados(inscricaoService.listarInscritos((ProcessoSeletivo) SessionContext.getInstance().getAttribute("processo")));
+		setInscricoes(inscricaoService.listarInscricoesPorProcesso((ProcessoSeletivo) SessionContext.getInstance().getAttribute("processo")));
 		return geturlNotas();
 	}
 	
 	public String finalizar(){
 		processo = (ProcessoSeletivo) SessionContext.getInstance().getAttribute("processo");
-		
+		processo.setFinalizado(true);
+		processoService.atualizarProcesso(processo);
 		SessionContext.getInstance().removeAttribute("processo");
-		
+		for(Inscricao inscricao: inscricoes){
+			inscricaoService.atualizarInscricao(inscricao);
+		}
 		return "/interna/coordenador/index.jsf";
 	}
 
-	public List<Graduado> getGraduados() {
-		return graduados;
+	public List<Inscricao> getInscricoes(){
+		return inscricoes;
 	}
 
-	public void setGraduados(List<Graduado> graduados) {
-		this.graduados = graduados;
+	public void setInscricoes(List<Inscricao> inscricoes) {
+		this.inscricoes = inscricoes;
 	}
 }
