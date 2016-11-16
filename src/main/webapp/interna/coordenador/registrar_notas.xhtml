@@ -22,14 +22,11 @@
 			</ol>
 			<h:form>
 				<h:messages />
-				<div class='form-group input-group'>
-					<span class="input-group-addon" id="basic-addon1">Processo</span>
-					<h:selectOneMenu class='form-control' converter="#{processoCV}" value="#{processoSeletivoMB.processo}" required="true" requiredMessage="processo seletivo obrigatório">
-					    <f:selectItems value="#{coordenadorMB.processos}" var="p" itemValue="#{p}" itemLabel="#{p.curso} | #{p.data_inicio}" />
-					</h:selectOneMenu>
-				</div>
+				<ui:repeat value="#{myBean.names}" varStatus="loop">
+				    <h:inputText value="#{myBean.names[loop.index]}" />
+				</ui:repeat>
 				<div style="text-align: center">
-					<h:commandButton action="#{processoSeletivoMB.finalizar}" value="selecionar" class="btn btn-default" />
+					<h:commandButton action="#{finalizarProcessoMB.finalizar}" value="finalizar" class="btn btn-default" />
 				</div>
 			</h:form>
 		</div>
