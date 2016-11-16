@@ -10,7 +10,6 @@ import javax.inject.Inject;
 
 import dao.InscricaoDAO;
 import dao.VagaDAO;
-import model.Graduado;
 import model.Inscricao;
 import model.ProcessoSeletivo;
 import model.Vaga;
@@ -55,13 +54,9 @@ public class InscricaoService {
 	public List<Inscricao> listarInscricoesPorProcesso(ProcessoSeletivo processo) {
 		List<Vaga> vagas = vagaDAO.listarVagas(processo.getIdprocesso());
 		List<Inscricao> inscricoes = new ArrayList<Inscricao>();
-		List<Graduado> graduados = new ArrayList<Graduado>();
 		
 		for(Vaga vaga: vagas){
 			 inscricoes.addAll(inscricaoDAO.listarInscricoesPorVaga(vaga.getIdvaga()));
-		}
-		for(Inscricao inscricao: inscricoes){
-			graduados.add(inscricao.getGraduado());
 		}
 		return inscricoes;
 	}

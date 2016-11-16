@@ -20,4 +20,4 @@ insert into inscricao (idinscricao, idvaga, idgraduado, nota, idsituacao) values
 
 insert into noticia (idnoticia, titulo, corpo) values (1, "ALERTA URGENTE", "Sistema criado!");
 
-insert into mensagem (idmensagem, titulo, corpo, ativa, idusuario) values (1, "Uma mensagem", "Essa é uma mensagem", 1, 1);
+insert into mensagem (idmensagem, titulo, corpo, ativa, idusuario) values (1, "Uma mensagem", "Essa é uma mensagem", 1, 1), (2, "Uma outra mensagem", "Essa é uma segunda mensagem", 1, 1);

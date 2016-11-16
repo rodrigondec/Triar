@@ -65,6 +65,9 @@ public class UsuarioDAO {
 		catch(NoResultException e){
 			return false;
 		}
+		catch(Exception r){
+			
+		}
 		return true;
 	}
 	
