@@ -103,7 +103,15 @@
 									<h3 class="panel-title">Notificações</h3>
 								</div>
 								<div class="panel-body">
-									Panel content
+									<h:form>
+										<div class='form-group input-group'>
+											<h:selectBooleanCheckbox value="#{configuracaoMB.senha2}" />
+											Desejo receber emails sobre o sistema
+										</div>
+										<div style="text-align: center">
+											<h:commandButton action="#{configuracaoMB.alterarSenha}" value="Alterar" class="btn btn-default" />
+										</div>
+									</h:form>
 								</div>
 							</div>
 						</div>
